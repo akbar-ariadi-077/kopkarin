@@ -12,7 +12,12 @@ class Anggota extends CI_Controller
 
     public function index()
     {
-        $this->m_anggota();
+        $this->load->view('include/header');
+        $this->load->view('include/loader');
+        $this->load->view('include/navbar');
+        $this->load->view('include/sidebar');
+        $this->load->view('anggota/anggota_list');
+        $this->load->view('include/footer');
     }
 
     public function m_anggota()
@@ -23,7 +28,7 @@ class Anggota extends CI_Controller
 
         $this->load->view('include/header');
         $this->load->view('include/loader');
-        $this->load->view('include/navbar');
+        $this->load->view('anggota/navbar');
         $this->load->view('include/sidebar');
         $this->load->view('anggota/anggota_list', $data);
         $this->load->view('include/footer');
