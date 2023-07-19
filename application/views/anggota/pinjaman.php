@@ -107,8 +107,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $z = 0; ?>
-                                <?php foreach ($a_pinjaman as $y): ?>
+                                <?php
+                                $z = 0;
+                                $saldo = $a_pengajuan['jumlah_pinjaman'];
+                                foreach ($a_pinjaman as $y):
+                                    $saldo = $saldo - ($y['angsuran_pokok'] + $y['angsuran_bunga']);
+                                    ?>
                                     <tr>
                                         <?php //$z += 1; 
                                             ?>
@@ -132,7 +136,7 @@
                                             <?= number_format($y['angsuran_pokok'] + $y['angsuran_bunga']); ?>
                                         </td>
                                         <td align="right">
-                                            <?= number_format(0); ?>
+                                            <?= number_format($saldo); ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

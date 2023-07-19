@@ -9,6 +9,7 @@ class Anggota extends CI_Controller
         $this->load->model('M_Auth');
         $this->load->model('M_Anggota');
         $this->load->model('M_Pinjaman');
+        $this->load->model('M_Tabungan');
         $this->load->model('M_Pengajuan');
         $this->load->model('M_Master');
     }
@@ -42,6 +43,24 @@ class Anggota extends CI_Controller
         $this->load->view('anggota/navbar', $data);
         $this->load->view('anggota/sidebar');
         $this->load->view('anggota/pinjaman', $data);
+        $this->load->view('anggota/footer');
+
+    }
+
+    public function tabungan()
+    {
+        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
+        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
+        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
+        $data['a_tabungan'] = $this->M_Tabungan->get_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
+
+        $this->load->view('anggota/header');
+        $this->load->view('include/loader');
+        $this->load->view('anggota/navbar', $data);
+        $this->load->view('anggota/sidebar');
+        $this->load->view('anggota/tabungan', $data);
         $this->load->view('anggota/footer');
 
     }

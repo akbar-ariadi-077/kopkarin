@@ -65,7 +65,7 @@
             "sLengthMenu": "Jumlah Baris per Halaman :  _MENU_",
         },
         "stripeClasses": [],
-        "lengthMenu": [7, 10, 20, 50],
+        "lengthMenu": [7, 10, 12, 20, 50],
         "pageLength": 10
     });
 </script>
