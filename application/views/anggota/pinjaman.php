@@ -29,7 +29,7 @@
                                         <h4>
                                             <span class="badge badge-light-dark">
                                                 <b>
-                                                    <?= $a_pengajuan['txt_pr_id_bulan'] . ' ' . $a_pengajuan['text_tahun']; ?>
+                                                    <?= (isset($a_pengajuan['txt_pr_id_bulan']) && isset($a_pengajuan['text_tahun'])) ? $a_pengajuan['txt_pr_id_bulan'] . ' ' . $a_pengajuan['text_tahun'] : '-'; ?>
                                                 </b>
                                             </span>
                                         </h4>
@@ -43,7 +43,7 @@
                                         <h5>
                                             <span class="badge badge-light-dark">
                                                 <b>
-                                                    <?= number_format($a_pengajuan['jumlah_pinjaman']); ?>
+                                                    <?= (isset($a_pengajuan['jumlah_pinjaman'])) ? number_format($a_pengajuan['jumlah_pinjaman']) : '0'; ?>
                                                 </b>
                                             </span>
                                         </h5>
@@ -57,7 +57,8 @@
                                         <h5>
                                             <span class="badge badge-light-dark">
                                                 <b>
-                                                    <?= number_format($a_pengajuan['jangka_waktu']); ?> kali
+                                                    <?= (isset($a_pengajuan['jangka_waktu'])) ? number_format($a_pengajuan['jangka_waktu']) : '0'; ?>
+                                                    kali
                                                 </b>
                                             </span>
                                         </h5>
@@ -71,7 +72,8 @@
                                         <h5>
                                             <span class="badge badge-light-dark">
                                                 <b>
-                                                    <?= number_format($a_pengajuan['bunga_pinjaman_persen'], 1); ?> %
+                                                    <?= (isset($a_pengajuan['bunga_pinjaman_persen'])) ? number_format($a_pengajuan['bunga_pinjaman_persen'], 1) : '0'; ?>
+                                                    %
                                                 </b>
                                             </span>
                                         </h5>
@@ -85,7 +87,7 @@
                                         <h5>
                                             <span class="badge badge-light-dark">
                                                 <b>
-                                                    <?= number_format($a_pengajuan['bunga_pinjaman']); ?>
+                                                    <?= (isset($a_pengajuan['bunga_pinjaman'])) ? number_format($a_pengajuan['bunga_pinjaman']) : '0'; ?>
                                                 </b>
                                             </span>
                                         </h5>
@@ -109,9 +111,9 @@
                             <tbody>
                                 <?php
                                 $z = 0;
-                                $saldo = $a_pengajuan['jumlah_pinjaman'];
+                                $saldo = ((isset($a_pengajuan['jumlah_pinjaman'])) ? $a_pengajuan['jumlah_pinjaman'] : 0);
                                 foreach ($a_pinjaman as $y):
-                                    $saldo = $saldo - ($y['angsuran_pokok'] + $y['angsuran_bunga']);
+                                    $saldo = $saldo - $y['angsuran_pokok'];
                                     ?>
                                     <tr>
                                         <?php //$z += 1; 

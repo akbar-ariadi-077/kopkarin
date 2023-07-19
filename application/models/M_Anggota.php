@@ -133,11 +133,14 @@ class M_Anggota extends CI_model
     public function get_simwa_by_anggota($payroll)
     {
         $query = "SELECT 
-                    CASE
-                        WHEN jenis_transaksi = 'Add' 		THEN  SUM(jumlah_simpanan)
-                        WHEN jenis_transaksi = 'Withdraw' 	THEN -SUM(jumlah_simpanan)
+                    (SUM(CASE
+                        WHEN jenis_transaksi = 'Add' THEN 1 * jumlah_simpanan
                         ELSE 0
-                    END AS simpanan_wajib
+                    END) + 
+                    SUM(CASE
+                        WHEN jenis_transaksi = 'Withdraw' THEN -1 * jumlah_simpanan
+                        ELSE 0
+                    END)) AS simpanan_wajib
                     FROM simpok_simwa
                     WHERE jenis_simpanan = 'Simpanan Wajib' AND payroll_simpanan = $payroll;
                  ";
@@ -147,33 +150,17 @@ class M_Anggota extends CI_model
     public function get_simpok_by_anggota($payroll)
     {
         $query = "SELECT 
-                    CASE
-                        WHEN jenis_transaksi = 'Add' 		THEN  SUM(jumlah_simpanan)
-                        WHEN jenis_transaksi = 'Withdraw' 	THEN -SUM(jumlah_simpanan)
+                    (SUM(CASE
+                        WHEN jenis_transaksi = 'Add' THEN 1 * jumlah_simpanan
                         ELSE 0
-                    END AS simpanan_pokok
+                    END) + 
+                    SUM(CASE
+                        WHEN jenis_transaksi = 'Withdraw' THEN -1 * jumlah_simpanan
+                        ELSE 0
+                    END)) AS simpanan_pokok
                     FROM simpok_simwa
                     WHERE jenis_simpanan = 'Simpanan Pokok' AND payroll_simpanan = $payroll;
                  ";
         return $this->db->query($query)->row_array();
     }
-
-    // SELECT 
-// CASE
-// 	WHEN jenis_simpanan = 'Simpanan Wajib' THEN
-//     	CASE
-//             WHEN jenis_transaksi = 'Add' THEN SUM(jumlah_simpanan)
-//             WHEN jenis_transaksi = 'Withdraw' THEN -SUM(jumlah_simpanan)
-//             ELSE 0
-// 		END
-// 	WHEN jenis_simpanan = 'Simpanan Pokok' THEN
-//     	CASE
-//             WHEN jenis_transaksi = 'Add' THEN SUM(jumlah_simpanan)
-//             WHEN jenis_transaksi = 'Withdraw' THEN -SUM(jumlah_simpanan)
-//             ELSE 0
-// 		END
-// 	ELSE 0
-// END AS simpanan
-// FROM simpok_simwa
-// WHERE payroll_simpanan = 1;
 }

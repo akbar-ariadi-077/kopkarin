@@ -92,7 +92,8 @@
                     </a>
                 </li>
 
-                <li class="menu<?= ($this->uri->segment(2) == 'pengajuan') ? ' active' : ''; ?>">
+                <li
+                    class="menu<?= ($this->uri->segment(2) == 'pengajuan' ? ' active' : ($this->uri->segment(2) == 'pengajuan_cek' ? ' active' : ($this->uri->segment(2) == 'pengajuan_ajukan' ? ' active' : ''))); ?>">
                     <a href="<?= base_url(); ?>anggota/pengajuan#data"
                         aria-expanded="<?= ($this->uri->segment(2) == 'pengajuan') ? 'true' : 'false'; ?>"
                         class="dropdown-toggle">
