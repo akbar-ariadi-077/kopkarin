@@ -6,6 +6,11 @@ class Anggota extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        if (!$this->session->userdata('iduser')) {
+            redirect('auth');
+        }
+
         $this->load->model('M_Tahun');
         $this->load->model('M_Bulan');
         $this->load->model('M_Anggota');
@@ -81,33 +86,37 @@ class Anggota extends CI_Controller
         $this->load->view('anggota/footer');
     }
 
-    public function pengajuan()
+    public function pengajuan($param = NULL)
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
-        $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_pinjaman'] = $this->M_Pinjaman->get_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
+        if ($param == 'barang') {
+            $this->barang();
+        } else {
+            $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+            $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
+            $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
+            $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
+            $data['a_pinjaman'] = $this->M_Pinjaman->get_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
+            $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
 
-        $this->load->view('anggota/header');
-        $this->load->view('include/loader');
-        $this->load->view('anggota/navbar', $data);
-        $this->load->view('anggota/sidebar');
+            $this->load->view('anggota/header');
+            $this->load->view('include/loader');
+            $this->load->view('anggota/navbar', $data);
+            $this->load->view('anggota/sidebar');
 
-        if (isset($data['a_pengajuan'])) {
-            if ($data['a_pengajuan']['status_pinjaman'] == 'Belum Lunas') {
-                $data['sisa_pinjaman'] = $data['a_pengajuan']['jumlah_pinjaman'] - ($data['a_pengajuan']['angsuran_pokok'] * $data['a_pengajuan']['angsuran_ke']);
+            if (isset($data['a_pengajuan'])) {
+                if ($data['a_pengajuan']['status_pinjaman'] == 'Belum Lunas') {
+                    $data['sisa_pinjaman'] = $data['a_pengajuan']['jumlah_pinjaman'] - ($data['a_pengajuan']['angsuran_pokok'] * $data['a_pengajuan']['angsuran_ke']);
+                } else {
+                    $data['sisa_pinjaman'] = 0;
+                }
+                $this->load->view('anggota/pengajuan_ajukan', $data);
             } else {
                 $data['sisa_pinjaman'] = 0;
+                $this->load->view('anggota/pengajuan', $data);
             }
-            $this->load->view('anggota/pengajuan_ajukan', $data);
-        } else {
-            $data['sisa_pinjaman'] = 0;
-            $this->load->view('anggota/pengajuan', $data);
-        }
 
-        $this->load->view('anggota/footer');
+            $this->load->view('anggota/footer');
+        }
     }
 
     public function pengajuan_cek()
@@ -202,6 +211,23 @@ class Anggota extends CI_Controller
             $this->load->view('anggota/pengajuan', $data);
         }
 
+        $this->load->view('anggota/footer');
+    }
+
+    public function barang()
+    {
+        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
+        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
+        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
+        $data['a_pinjaman'] = $this->M_Pinjaman->get_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
+        // $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
+
+        $this->load->view('anggota/header');
+        $this->load->view('include/loader');
+        $this->load->view('anggota/navbar', $data);
+        $this->load->view('anggota/sidebar');
+        $this->load->view('anggota/barang', $data);
         $this->load->view('anggota/footer');
     }
 
