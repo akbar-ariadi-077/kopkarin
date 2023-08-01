@@ -45,7 +45,7 @@
                 </li>
 
                 <li
-                    class="menu<?= ($this->uri->segment(2) == 'pinjaman' ? ' active' : (($this->uri->segment(2) == 'pengajuan') && ($this->uri->segment(3) == '') ? ' active' : '')); ?>">
+                    class="menu<?= ($this->uri->segment(2) == 'pinjaman' ? ' active' : (($this->uri->segment(2) == 'pengajuan') && ($this->uri->segment(3) == '') ? ' active' : ($this->uri->segment(2) == 'pengajuan_cek' ? ' active' : ''))); ?>">
                     <a href="#home" data-bs-toggle="collapse"
                         aria-expanded="<?= ($this->uri->segment(2) == 'pinjaman') ? 'true' : 'false'; ?>"
                         class="dropdown-toggle">
@@ -102,7 +102,7 @@
                 </li>
 
                 <li
-                    class="menu<?= ($this->uri->segment(2) == 'barang' ? ' active' : ($this->uri->segment(3) == 'barang' ? ' active' : '')); ?>">
+                    class="menu<?= ($this->uri->segment(2) == 'barang' ? ' active' : ($this->uri->segment(3) == 'barang' ? ' active' : ($this->uri->segment(2) == 'pengajuan_cek_barang' ? ' active' : ''))); ?>">
                     <a href="#home" data-bs-toggle="collapse"
                         aria-expanded="<?= ($this->uri->segment(2) == 'barang') ? 'true' : 'false'; ?>"
                         class="dropdown-toggle">

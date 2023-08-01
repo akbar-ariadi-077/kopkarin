@@ -23,6 +23,20 @@
                             <tbody>
                                 <tr>
                                     <td width="50%" align="right">
+                                        <h6>Nama Barang&nbsp;&nbsp;</h6>
+                                    </td>
+                                    <td width="50%" align="left">
+                                        <h4>
+                                            <span class="badge badge-light-dark">
+                                                <b>
+                                                    <?= (isset($a_pengajuan['nama_barang'])) ? $a_pengajuan['nama_barang'] : '-'; ?>
+                                                </b>
+                                            </span>
+                                        </h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" align="right">
                                         <h6>Bulan Pinjam&nbsp;&nbsp;</h6>
                                     </td>
                                     <td width="50%" align="left">
@@ -64,35 +78,39 @@
                                         </h5>
                                     </td>
                                 </tr>
+                                <?php
+                                /*
                                 <tr>
-                                    <td width="50%" align="right">
-                                        <h6>Bunga&nbsp;&nbsp;</h6>
-                                    </td>
-                                    <td width="50%" align="left">
-                                        <h5>
-                                            <span class="badge badge-light-dark">
-                                                <b>
-                                                    <?= (isset($a_pengajuan['bunga_pinjaman_persen'])) ? number_format($a_pengajuan['bunga_pinjaman_persen'], 1) : '0'; ?>
-                                                    %
-                                                </b>
-                                            </span>
-                                        </h5>
-                                    </td>
+                                 <td width="50%" align="right">
+                                     <h6>Bunga&nbsp;&nbsp;</h6>
+                                 </td>
+                                 <td width="50%" align="left">
+                                     <h5>
+                                         <span class="badge badge-light-dark">
+                                             <b>
+                                                 <?= (isset($a_pengajuan['bunga_pinjaman_persen'])) ? number_format($a_pengajuan['bunga_pinjaman_persen'], 1) : '0'; ?>
+                                                 %
+                                             </b>
+                                         </span>
+                                     </h5>
+                                 </td>
                                 </tr>
                                 <tr>
-                                    <td width="50%" align="right">
-                                        <h6>Bunga per Tahun&nbsp;&nbsp;</h6>
-                                    </td>
-                                    <td width="50%" align="left">
-                                        <h5>
-                                            <span class="badge badge-light-dark">
-                                                <b>
-                                                    <?= (isset($a_pengajuan['bunga_pinjaman'])) ? number_format($a_pengajuan['bunga_pinjaman']) : '0'; ?>
-                                                </b>
-                                            </span>
-                                        </h5>
-                                    </td>
+                                 <td width="50%" align="right">
+                                     <h6>Bunga per Tahun&nbsp;&nbsp;</h6>
+                                 </td>
+                                 <td width="50%" align="left">
+                                     <h5>
+                                         <span class="badge badge-light-dark">
+                                             <b>
+                                                 <?= (isset($a_pengajuan['bunga_pinjaman'])) ? number_format($a_pengajuan['bunga_pinjaman']) : '0'; ?>
+                                             </b>
+                                         </span>
+                                     </h5>
+                                 </td>
                                 </tr>
+                                */
+                                ?>
                             </tbody>
                         </table>
                         <br />

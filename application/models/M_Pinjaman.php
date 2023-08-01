@@ -29,7 +29,7 @@ class M_Pinjaman extends CI_model
 
     public function get_pinjaman_barang_by_nik($payroll)
     {
-        $query = $this->db->select('p.angsuran_ke, b.txt_pr_id_bulan, t.text_tahun, p.angsuran_pokok, p.angsuran_bunga')
+        $query = $this->db->select('p.angsuran_ke, b.txt_pr_id_bulan, t.text_tahun, p.angsuran_pokok, p.angsuran_bunga, p.nama_barang')
             ->from('pinjaman_barang p')
             ->join('bulan b', 'p.bulan_pinjaman = b.id_bulan')
             ->join('tahun t', 'p.tahun_pinjaman = t.id_tahun')
