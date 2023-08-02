@@ -48,23 +48,38 @@
                         </table>
                         </p>
                     </div>
-                    <!-- <br>
-                    <div class="text-center user-info m-0 avatar avatar-xl">
-                        <a href="<?= base_url(); ?>anggota"
-                            aria-expanded="<?= ($this->uri->segment(2) == '') ? 'true' : 'false'; ?>"
-                            class="dropdown-toggle">
-                            <div class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-columns">
-                                    <path
-                                        d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18">
-                                    </path>
-                                </svg>
-                            </div>
-                        </a>
+                    <br><br>
+                    <div class="row text-center">
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <a href="<?= base_url(); ?>anggota">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/dashboard.png" alt="avatar" width="90"
+                                    height="90">
+                                <p class=""><b>Dashboard</b></p>
+                            </a>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <a href="<?= base_url(); ?>anggota/pinjaman#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/pinjaman.png" alt="avatar" width="90"
+                                    height="90">
+                                <p class=""><b>Pinjaman</b></p>
+                            </a>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <a href="<?= base_url(); ?>anggota/tabungan#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/tabungan.png" alt="avatar" width="90"
+                                    height="90">
+                                <p class=""><b>Tabungan</b></p>
+                            </a>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <a href="<?= base_url(); ?>anggota/barang#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/barang.png" alt="avatar" width="90"
+                                    height="90">
+                                <p class=""><b>Barang</b></p>
+                            </a>
+                        </div>
                     </div>
-                    <br> -->
+                    <br><br>
                 </div>
             </div>
         </div>

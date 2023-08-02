@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/projects/sorini/ksp/';
-
+// $config['base_url'] = 'http://localhost/kopkarin/kopkarin_20230802/kopkarin/';
 /*
 |--------------------------------------------------------------------------
 | Index File
