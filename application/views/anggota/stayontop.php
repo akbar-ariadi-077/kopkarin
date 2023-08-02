@@ -47,6 +47,23 @@
                         </table>
                         </p>
                     </div>
+                    <!-- <br>
+                    <div class="text-center user-info m-0 avatar avatar-xl">
+                        <a href="<?= base_url(); ?>anggota"
+                            aria-expanded="<?= ($this->uri->segment(2) == '') ? 'true' : 'false'; ?>"
+                            class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-columns">
+                                    <path
+                                        d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18">
+                                    </path>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                    <br> -->
                 </div>
             </div>
         </div>
