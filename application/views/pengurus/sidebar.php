@@ -16,9 +16,6 @@
                             <img src="<?= base_url(); ?>assets/src/assets/img/logo.svg" class="navbar-logo" alt="logo">
                         </a>
                     </div>
-                    <div class="nav-item theme-text">
-                        <a href="index.html" class="nav-link"> CORK </a>
-                    </div>
                 </div>
                 <div class="nav-item sidebar-toggle">
                     <div class="btn-toggle sidebarCollapse">
@@ -35,7 +32,7 @@
             <ul class="list-unstyled menu-categories" id="accordionExample">
 
                 <li class="menu active">
-                    <a href="<?= base_url(); ?>admin" aria-expanded="true" class="dropdown-toggle">
+                    <a href="<?= base_url(); ?>pengurus" aria-expanded="true" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -44,7 +41,7 @@
                                     d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18">
                                 </path>
                             </svg>
-                            <span>Home Page</span>
+                            <span>Dashboard</span>
                         </div>
                     </a>
                 </li>
@@ -110,22 +107,52 @@
                     </a>
                     <ul class="collapse submenu list-unstyled" id="home" data-bs-parent="#accordionExample">
                         <li>
-                            <a href="<?= base_url() . 'admin/m_anggota'; ?>"> Daftar Anggota </a>
+                            <a href="<?= base_url() . 'pengurus/m_anggota'; ?>"> Daftar Anggota </a>
                         </li>
                         <li>
                             <a href="<?= base_url() . 'transaksi/'; ?>"> Transaksi Anggota </a>
                         </li>
                         <li>
-                            <a href="<?= base_url() . 'admin/simwapok'; ?>"> Simp. Wajib & Pokok </a>
+                            <a href="<?= base_url() . 'pengurus/simwapok'; ?>"> Simp. Wajib & Pokok </a>
                         </li>
                     </ul>
                 </li>
-            </ul>
-            </li>
+
+                <li class="menu">
+                    <a href="#home" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-star">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <span>Transaksi</span>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-chevron-right">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+                    <ul class="collapse submenu list-unstyled" id="home" data-bs-parent="#accordionExample">
+                        <li>
+                            <a href="<?= base_url() . 'pengurus'; ?>"> Pinjaman Anggota </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url() . 'pengurus'; ?>"> Tabungan Anggota </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url() . 'pengurus'; ?>"> Pinjaman Barang </a>
+                        </li>
+                    </ul>
+                </li>
+
 
             </ul>
-
         </nav>
-
     </div>
     <!--  END SIDEBAR  -->

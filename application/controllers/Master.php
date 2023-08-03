@@ -17,12 +17,12 @@ class Master extends CI_Controller
     {
         $data['myear'] = $this->M_Master->get_all_year_active();
 
-        $this->load->view('include/header');
-        $this->load->view('include/loader');
-        $this->load->view('include/navbar');
-        $this->load->view('include/sidebar');
+        $this->load->view('pengurus/header');
+        $this->load->view('pengurus/loader');
+        $this->load->view('pengurus/navbar');
+        $this->load->view('pengurus/sidebar');
         $this->load->view('master/v_year', $data);
-        $this->load->view('include/footer');
+        $this->load->view('pengurus/footer');
     }
 
     public function m_year_new()
@@ -66,12 +66,12 @@ class Master extends CI_Controller
     {
         $data['m_month'] = $this->M_Master->get_all_bulan();
 
-        $this->load->view('include/header');
-        $this->load->view('include/loader');
-        $this->load->view('include/navbar');
-        $this->load->view('include/sidebar');
+        $this->load->view('pengurus/header');
+        $this->load->view('pengurus/loader');
+        $this->load->view('pengurus/navbar');
+        $this->load->view('pengurus/sidebar');
         $this->load->view('master/v_month', $data);
-        $this->load->view('include/footer');
+        $this->load->view('pengurus/footer');
     }
 
 
@@ -80,12 +80,12 @@ class Master extends CI_Controller
     {
         $data['mpaytod'] = $this->M_Master->get_all_paytod_active();
 
-        $this->load->view('include/header');
-        $this->load->view('include/loader');
-        $this->load->view('include/navbar');
-        $this->load->view('include/sidebar');
+        $this->load->view('pengurus/header');
+        $this->load->view('pengurus/loader');
+        $this->load->view('pengurus/navbar');
+        $this->load->view('pengurus/sidebar');
         $this->load->view('master/v_paytod', $data);
-        $this->load->view('include/footer');
+        $this->load->view('pengurus/footer');
     }
 
     public function m_paytod_new()
@@ -124,12 +124,12 @@ class Master extends CI_Controller
     {
         $data['m_bank'] = $this->M_Master->get_all_bank_active();
 
-        $this->load->view('include/header');
-        $this->load->view('include/loader');
-        $this->load->view('include/navbar');
-        $this->load->view('include/sidebar');
+        $this->load->view('pengurus/header');
+        $this->load->view('pengurus/loader');
+        $this->load->view('pengurus/navbar');
+        $this->load->view('pengurus/sidebar');
         $this->load->view('master/v_bank', $data);
-        $this->load->view('include/footer');
+        $this->load->view('pengurus/footer');
     }
 
     public function m_bank_new()
@@ -174,12 +174,12 @@ class Master extends CI_Controller
     {
         $data['m_dept'] = $this->M_Master->get_all_dept_active();
 
-        $this->load->view('include/header');
-        $this->load->view('include/loader');
-        $this->load->view('include/navbar');
-        $this->load->view('include/sidebar');
+        $this->load->view('pengurus/header');
+        $this->load->view('pengurus/loader');
+        $this->load->view('pengurus/navbar');
+        $this->load->view('pengurus/sidebar');
         $this->load->view('master/v_dept', $data);
-        $this->load->view('include/footer');
+        $this->load->view('pengurus/footer');
     }
 
     public function m_dept_new()

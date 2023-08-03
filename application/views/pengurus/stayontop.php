@@ -7,45 +7,8 @@
                         <img src="<?= base_url(); ?>assets/src/assets/img/profile-38.PNG" alt="avatar" width="90"
                             height="90">
                         <p class="">
-                            <?= $us['payroll_anggota']; ?> /
-                            <?= $us['nama_anggota']; ?> /
-                            <?= $us['nama_dept']; ?>
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <p class="">
-                        <table style="width: 100%; margin: auto;" border="0">
-                            <tbody>
-                                <tr>
-                                    <td width="50%" align="right">
-                                        <h6>Simpanan Pokok&nbsp;&nbsp;</h6>
-                                    </td>
-                                    <td width="50%" align="left">
-                                        <h4>
-                                            <span class="badge badge-light-dark">
-                                                <b>
-                                                    <?= number_format($a_simpok['simpanan_pokok']); ?>
-                                                </b>
-                                            </span>
-                                        </h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="50%" align="right">
-                                        <h6>Total Simpanan Wajib&nbsp;&nbsp;</h6>
-                                    </td>
-                                    <td width="50%" align="left">
-                                        <h5>
-                                            <span class="badge badge-light-dark">
-                                                <b>
-                                                    <?= number_format($a_simwa['simpanan_wajib']); ?>
-                                                </b>
-                                            </span>
-                                        </h5>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <?= $us['nama_pengurus']; ?> /
+                            <?= $us['nama_jabatan']; ?>
                         </p>
                     </div>
                     <br><br>

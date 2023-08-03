@@ -16,9 +16,6 @@
                             <img src="<?= base_url(); ?>assets/src/assets/img/logo.svg" class="navbar-logo" alt="logo">
                         </a>
                     </div>
-                    <div class="nav-item theme-text">
-                        <a href="index.html" class="nav-link"> CORK </a>
-                    </div>
                 </div>
                 <div class="nav-item sidebar-toggle">
                     <div class="btn-toggle sidebarCollapse">
@@ -44,7 +41,7 @@
                                     d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18">
                                 </path>
                             </svg>
-                            <span>Home Page</span>
+                            <span>Dashboard</span>
                         </div>
                     </a>
                 </li>
@@ -71,19 +68,19 @@
                     </a>
                     <ul class="collapse submenu list-unstyled" id="home" data-bs-parent="#accordionExample">
                         <li>
-                            <a href="<?= base_url() . 'index.php/master/m_year'; ?>"> Tahun </a>
+                            <a href="<?= base_url() . 'master/m_year'; ?>"> Tahun </a>
                         </li>
                         <li>
-                            <a href="<?= base_url() . 'index.php/master/m_month'; ?>"> Bulan </a>
+                            <a href="<?= base_url() . 'master/m_month'; ?>"> Bulan </a>
                         </li>
                         <li>
-                            <a href="<?= base_url() . 'index.php/master/m_bank'; ?>"> Bank </a>
+                            <a href="<?= base_url() . 'master/m_bank'; ?>"> Bank </a>
                         </li>
                         <li>
-                            <a href="<?= base_url() . 'index.php/master/m_dept'; ?>"> Department </a>
+                            <a href="<?= base_url() . 'master/m_dept'; ?>"> Department </a>
                         </li>
                         <li>
-                            <a href="<?= base_url() . 'index.php/master/m_paytod'; ?>"> Metode Bayar </a>
+                            <a href="<?= base_url() . 'master/m_paytod'; ?>"> Metode Bayar </a>
                         </li>
                     </ul>
                 </li>
@@ -110,13 +107,13 @@
                     </a>
                     <ul class="collapse submenu list-unstyled" id="home" data-bs-parent="#accordionExample">
                         <li>
-                            <a href="<?= base_url() . 'index.php/anggota/m_anggota'; ?>"> Daftar Anggota </a>
+                            <a href="<?= base_url() . 'anggota/m_anggota'; ?>"> Daftar Anggota </a>
                         </li>
                         <li>
-                            <a href="<?= base_url() . 'index.php/transaksi/'; ?>"> Transaksi Anggota </a>
+                            <a href="<?= base_url() . 'transaksi/'; ?>"> Transaksi Anggota </a>
                         </li>
                         <li>
-                            <a href="<?= base_url() . 'index.php/anggota/simwapok'; ?>"> Simp. Wajib & Pokok </a>
+                            <a href="<?= base_url() . 'anggota/simwapok'; ?>"> Simp. Wajib & Pokok </a>
                         </li>
                     </ul>
                 </li>

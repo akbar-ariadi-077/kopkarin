@@ -52,8 +52,14 @@
                             <img src="<?= base_url(); ?>assets/src/assets/img/profile-38.PNG" class="img-fluid me-2"
                                 alt="avatar">
                             <div class="media-body">
-                                <h5>Shaun Park</h5>
-                                <p>Project Leader</p>
+                                <?php foreach ($m_iduser as $us): ?>
+                                    <h5>
+                                        <?= $us['nama_pengurus']; ?>
+                                    </h5>
+                                    <p>
+                                        <?= $us['nama_jabatan']; ?>
+                                    </p>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
@@ -68,29 +74,7 @@
                         </a>
                     </div>
                     <div class="dropdown-item">
-                        <a href="javascript:void(0);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-inbox">
-                                <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-                                <path
-                                    d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
-                                </path>
-                            </svg> <span>Inbox</span>
-                        </a>
-                    </div>
-                    <div class="dropdown-item">
-                        <a href="javascript:void(0);">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-lock">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg> <span>Lock Screen</span>
-                        </a>
-                    </div>
-                    <div class="dropdown-item">
-                        <a href="javascript:void(0);">
+                        <a href="<?= base_url(); ?>auth/logout">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-log-out">

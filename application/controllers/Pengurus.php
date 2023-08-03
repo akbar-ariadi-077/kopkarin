@@ -6,17 +6,31 @@ class Pengurus extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        if (!$this->session->userdata('iduser')) {
+            redirect('auth');
+        }
+
+        $this->load->model('M_Pengurus');
+        $this->load->model('M_Tahun');
+        $this->load->model('M_Bulan');
         $this->load->model('M_Anggota');
+        $this->load->model('M_Pinjaman');
+        $this->load->model('M_Tabungan');
+        $this->load->model('M_Pengajuan');
         $this->load->model('M_Master');
     }
 
     public function index()
     {
+        $data['m_iduser'] = $this->M_Pengurus->get_pengurus_by_id_res($this->session->userdata('iduser'));
+        $data['m_iduser_ro'] = $this->M_Pengurus->get_pengurus_by_id_row($this->session->userdata('iduser'));
+
         $this->load->view('pengurus/header');
         $this->load->view('pengurus/loader');
-        $this->load->view('pengurus/navbar');
+        $this->load->view('pengurus/navbar', $data);
         $this->load->view('pengurus/sidebar');
-        $this->load->view('pengurus/dashboard');
+        $this->load->view('pengurus/dashboard', $data);
         $this->load->view('pengurus/footer');
     }
 
