@@ -39,7 +39,7 @@
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="avatar-container">
                         <div class="avatar avatar-sm avatar-indicators avatar-online">
-                            <img alt="avatar" src="<?= base_url(); ?>assets/src/assets/img/profile-36.JPG"
+                            <img alt="avatar" src="<?= base_url(); ?>assets/src/assets/img/profile-37.PNG"
                                 class="rounded-circle">
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div class="user-profile-section">
                         <div class="media mx-auto">
-                            <img src="<?= base_url(); ?>assets/src/assets/img/profile-36.JPG" class="img-fluid me-2"
+                            <img src="<?= base_url(); ?>assets/src/assets/img/profile-37.PNG" class="img-fluid me-2"
                                 alt="avatar">
                             <div class="media-body">
                                 <?php foreach ($m_iduser as $us): ?>
