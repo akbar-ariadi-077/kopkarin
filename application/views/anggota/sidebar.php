@@ -45,6 +45,42 @@
                 </li>
 
                 <li
+                    class="menu<?= ($this->uri->segment(2) == 'tabungan' ? ' active' : ($this->uri->segment(2) == 'tabungan_tambah' ? ' active' : ($this->uri->segment(2) == 'tabungan_ambil' ? ' active' : ''))); ?>">
+                    <a href="#home" data-bs-toggle="collapse"
+                        aria-expanded="<?= ($this->uri->segment(2) == 'tabungan' ? 'true' : ($this->uri->segment(2) == 'tabungan_tambah' ? 'true' : ($this->uri->segment(2) == 'tabungan_ambil' ? 'true' : 'false'))); ?>"
+                        class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-star">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                                </polygon>
+                            </svg>
+                            <span>Tabungan</span>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-chevron-right">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+                    <ul class="collapse submenu list-unstyled" id="home" data-bs-parent="#accordionExample">
+                        <li>
+                            <a href="<?= base_url(); ?>anggota/tabungan#data"> Data Tabungan </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url(); ?>anggota/tabungan_tambah#data"> Tambah Tabungan </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url(); ?>anggota/tabungan_ambil#data"> Ambil Tabungan </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li
                     class="menu<?= ($this->uri->segment(2) == 'pinjaman' ? ' active' : (($this->uri->segment(2) == 'pengajuan') && ($this->uri->segment(3) == '') ? ' active' : ($this->uri->segment(2) == 'pengajuan_cek' ? ' active' : ''))); ?>">
                     <a href="#home" data-bs-toggle="collapse"
                         aria-expanded="<?= ($this->uri->segment(2) == 'pinjaman') ? 'true' : 'false'; ?>"
@@ -75,30 +111,6 @@
                             <a href="<?= base_url(); ?>anggota/pengajuan#data"> Pengajuan Pinjaman </a>
                         </li>
                     </ul>
-                </li>
-
-                <li class="menu<?= ($this->uri->segment(2) == 'tabungan') ? ' active' : ''; ?>">
-                    <a href="<?= base_url(); ?>anggota/tabungan#data"
-                        aria-expanded="<?= ($this->uri->segment(2) == 'tabungan') ? 'true' : 'false'; ?>"
-                        class="dropdown-toggle">
-                        <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-star">
-                                <polygon
-                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                                </polygon>
-                            </svg>
-                            <span>Tabungan</span>
-                        </div>
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-chevron-right">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </div>
-                    </a>
                 </li>
 
                 <li

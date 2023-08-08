@@ -4,13 +4,16 @@
             <div class="user-profile">
                 <div class="widget-content widget-content-area">
                     <div class="text-center user-info">
-                        <img src="<?= base_url(); ?>assets/src/assets/img/profile-38.PNG" alt="avatar" width="90"
-                            height="90">
-                        <p class="">
-                            <?= $us['payroll_anggota']; ?> /
-                            <?= $us['nama_anggota']; ?> /
-                            <?= $us['nama_dept']; ?>
-                        </p>
+                        <a
+                            href="<?= base_url(); ?>anggota/profile<?= ($this->session->userdata('role') == 'Anggota' ? '/anggota/' . $this->session->userdata('idanggota') : ($this->session->userdata('role') == 'Pengurus' ? '/pengurus/' . $this->session->userdata('idpengurus') : '/')); ?>">
+                            <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/profile-38.png" alt="avatar"
+                                width="90" height="90">
+                            <p class="">
+                                <?= $us['payroll_anggota']; ?> /
+                                <?= $us['nama_anggota']; ?> /
+                                <?= $us['nama_dept']; ?>
+                            </p>
+                        </a>
                     </div>
                     <div class="text-center">
                         <p class="">
@@ -18,7 +21,7 @@
                             <tbody>
                                 <tr>
                                     <td width="50%" align="right">
-                                        <h6>Simpanan Pokok&nbsp;&nbsp;</h6>
+                                        <h6>SimPok&nbsp;&nbsp;</h6>
                                     </td>
                                     <td width="50%" align="left">
                                         <h4>
@@ -32,7 +35,7 @@
                                 </tr>
                                 <tr>
                                     <td width="50%" align="right">
-                                        <h6>Total Simpanan Wajib&nbsp;&nbsp;</h6>
+                                        <h6>SimpWajib&nbsp;&nbsp;</h6>
                                     </td>
                                     <td width="50%" align="left">
                                         <h5>
@@ -50,34 +53,66 @@
                     </div>
                     <br><br>
                     <div class="row text-center">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
+                        <div class="col-xl-1 col-lg-0 col-md-0 col-sm-6 col-6">&nbsp;</div>
+                        <div class="col-xl-1 col-lg-0 col-md-0 col-sm-6 col-6">&nbsp;</div>
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
                             <a href="<?= base_url(); ?>anggota">
-                                <img src="<?= base_url(); ?>assets/src/assets/img/dashboard_gb.PNG" alt="avatar" width="90"
-                                    height="90">
-                                <p class=""><b>Dashboard</b></p>
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/dashboard_3r.png" alt="Dashboard"
+                                    width="90" height="140">
+                                <!-- <p class=""><b>Dashboard</b></p> -->
                             </a>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
-                            <a href="<?= base_url(); ?>anggota/pinjaman#data">
-                                <img src="<?= base_url(); ?>assets/src/assets/img/pinjaman_gb.PNG" alt="avatar" width="90"
-                                    height="90">
-                                <p class=""><b>Pinjaman</b></p>
-                            </a>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
                             <a href="<?= base_url(); ?>anggota/tabungan#data">
-                                <img src="<?= base_url(); ?>assets/src/assets/img/tabungan_gb.PNG" alt="avatar" width="90"
-                                    height="90">
-                                <p class=""><b>Tabungan</b></p>
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/tabungan_3r.png"
+                                    alt="Data Tabungan" width="90" height="140">
+                                <!-- <p class=""><b>Data<br>Tabungan</b></p> -->
                             </a>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
+                            <a href="<?= base_url(); ?>anggota/tabungan_tambah#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/tabungan_tambah_3r.png"
+                                    alt="Tambah Tabungan" width="90" height="140">
+                                <!-- <p class=""><b>Tambah<br>Tabungan</b></p> -->
+                            </a>
+                        </div>
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
+                            <a href="<?= base_url(); ?>anggota/tabungan_ambil#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/tabungan_ambil_3r.png"
+                                    alt="Ambil Tabungan" width="90" height="140">
+                                <!-- <p class=""><b>Ambil<br>Tabungan</b></p> -->
+                            </a>
+                        </div>
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
+                            <a href="<?= base_url(); ?>anggota/pengajuan#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/pengajuan_pinjaman_3r.png"
+                                    alt="Pengajuan Pinjaman" width="90" height="140">
+                                <!-- <p class=""><b>Pengajuan<br>Pinjaman</b></p> -->
+                            </a>
+                        </div>
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
+                            <a href="<?= base_url(); ?>anggota/pinjaman#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/pinjaman_3r.png"
+                                    alt="Data Pinjaman" width="90" height="140">
+                                <!-- <p class=""><b>Data<br>Pinjaman</b></p> -->
+                            </a>
+                        </div>
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
+                            <a href="<?= base_url(); ?>anggota/pengajuan/barang#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/pinjaman_barang_3r.png"
+                                    alt="Pengajuan Pinjaman Barang" width="90" height="140">
+                                <!-- <p class=""><b>Pengajuan<br>Pinjaman<br>Barange</b></p> -->
+                            </a>
+                        </div>
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
                             <a href="<?= base_url(); ?>anggota/barang#data">
-                                <img src="<?= base_url(); ?>assets/src/assets/img/barang_gb.PNG" alt="avatar" width="90"
-                                    height="90">
-                                <p class=""><b>Barang</b></p>
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/barang_3r.png"
+                                    alt="Data Pinjaman Barang" width="90" height="140">
+                                <!-- <p class=""><b>Data<br>Pinjaman<br>Barang</b></p> -->
                             </a>
                         </div>
+                        <div class="col-xl-1 col-lg-0 col-md-0 col-sm-6 col-6">&nbsp;</div>
+                        <div class="col-xl-1 col-lg-0 col-md-0 col-sm-6 col-6">&nbsp;</div>
                     </div>
                     <br><br>
                 </div>

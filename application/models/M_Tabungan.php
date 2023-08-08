@@ -29,4 +29,18 @@ class M_Tabungan extends CI_model
                  ";
         return $this->db->query($query)->result_array();
     }
+
+    public function get_tabungan_saldo_by_nik($payroll)
+    {
+        $query = "  SELECT 
+                        SUM(CASE
+                            WHEN jenis_tabungan = 'Add' THEN 1 * jumlah_tabungan
+                            WHEN jenis_tabungan = 'Withdraw' THEN -1 * jumlah_tabungan
+                            ELSE 0
+                            END) AS jumlah_tabungan
+                    FROM tabungan
+                    WHERE payroll_anggota = $payroll;
+                 ";
+        return $this->db->query($query)->result_array();
+    }
 }

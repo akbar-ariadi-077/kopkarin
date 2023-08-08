@@ -27,7 +27,8 @@ class Welcome extends CI_Controller
 		// $this->load->view('include/sidebar');
 		// $this->load->view('include/mainer');
 		// $this->load->view('include/footer');
-		// // $this->load->view('welcome_message');
-		redirect('auth');
+		// $this->load->view('welcome_message');
+		$this->load->view('homepage');
+		// redirect('auth');
 	}
 }

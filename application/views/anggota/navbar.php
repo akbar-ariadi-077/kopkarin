@@ -39,7 +39,7 @@
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="avatar-container">
                         <div class="avatar avatar-sm avatar-indicators avatar-online">
-                            <img alt="avatar" src="<?= base_url(); ?>assets/src/assets/img/profile-37.PNG"
+                            <img alt="avatar" src="<?= base_url(); ?>assets/src/assets/img/kopkarin/profile-37.PNG"
                                 class="rounded-circle">
                         </div>
                     </div>
@@ -48,8 +48,8 @@
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div class="user-profile-section">
                         <div class="media mx-auto">
-                            <img src="<?= base_url(); ?>assets/src/assets/img/profile-37.PNG" class="img-fluid me-2"
-                                alt="avatar">
+                            <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/profile-37.PNG"
+                                class="img-fluid me-2" alt="avatar">
                             <div class="media-body">
                                 <?php foreach ($m_iduser as $us): ?>
                                     <h5>
@@ -63,7 +63,8 @@
                         </div>
                     </div>
                     <div class="dropdown-item">
-                        <a href="javascript:void(0);">
+                        <a
+                            href="<?= base_url(); ?>anggota/profile<?= ($this->session->userdata('role') == 'Anggota' ? '/anggota/' . $this->session->userdata('idanggota') : ($this->session->userdata('role') == 'Pengurus' ? '/pengurus/' . $this->session->userdata('idpengurus') : '/')); ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-user">
