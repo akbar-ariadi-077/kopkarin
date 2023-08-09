@@ -129,7 +129,7 @@
             <?php if ($a_pengajuan['status_pinjaman'] == 'Belum Lunas'): ?>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 text-center">
-                        <a href="<?= base_url(); ?>anggota/pengajuan_topup" class="btn btn-danger mb-2 me-4 btn-lg">
+                        <a href="<?= base_url(); ?>anggota/pengajuan_topup#data" class="btn btn-danger mb-2 me-4 btn-lg">
                             <b>TOP UP SALDO PINJAMAN</b>
                         </a>
                     </div>

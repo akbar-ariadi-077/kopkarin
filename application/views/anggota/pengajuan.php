@@ -48,14 +48,9 @@
                                             <select class="form-control form-control-sm" name="jumlah_pinjaman"
                                                 required>
                                                 <option value="">Pilih <b>Jumlah Pinjaman</b></option>
-                                                <?php
-                                                $max_pinjaman = 30000000;
-                                                for ($x = 1000000; $x <= $max_pinjaman; $x += 1000000) {
-                                                    ?>
-                                                    <option value="<?= $x; ?>"><?= number_format($x); ?></option>
-                                                    <?php
-                                                }
-                                                ?>
+                                                <?php foreach ($m_pinjaman as $m): ?>
+                                                    <option value="<?= $m['id']; ?>"><?= number_format($m['int_pinjaman']); ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </td>
                                     </tr>
@@ -66,14 +61,10 @@
                                         <td width="50%" align="left">
                                             <select class="form-control form-control-sm" name="jangka_waktu" required>
                                                 <option value="">Pilih <b>Jangka Waktu</b></option>
-                                                <?php
-                                                $max_jangka = 48;
-                                                for ($x = 1; $x <= $max_jangka; $x++) {
-                                                    ?>
-                                                    <option value="<?= $x; ?>"><?= $x; ?></option>
-                                                    <?php
-                                                }
-                                                ?>
+                                                <?php foreach ($m_jangka as $j): ?>
+                                                    <option value="<?= $j['id']; ?>"><?= number_format($j['int_jangka']); ?>
+                                                    </option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </td>
                                     </tr>

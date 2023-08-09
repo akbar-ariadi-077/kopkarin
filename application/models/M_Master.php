@@ -224,4 +224,112 @@ class M_Master extends CI_model
         $this->db->where('id_bank', $id);
         $this->db->update('bank', $data_yyyy);
     }
+
+
+
+    public function get_all_jumlah_pinjaman()
+    {
+        return $this->db->order_by('int_pinjaman', 'ASC')->get_where('jumlah_pinjaman')->result_array();
+    }
+
+    public function get_all_jumlah_pinjaman_active()
+    {
+        return $this->db->order_by('int_pinjaman', 'ASC')->get_where('jumlah_pinjaman', ['status' => 1])->result_array();
+    }
+
+    public function ins_new_jumlah_pinjaman()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'int_pinjaman' => $this->input->post('yyyy', true),
+            'status' => 1,
+            'cdt' => $now
+        ];
+        $this->db->insert('jumlah_pinjaman', $data_yyyy);
+    }
+
+    public function upd_jumlah_pinjaman($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'int_pinjaman' => $this->input->post('yyyy', true),
+            'status' => 1,
+            'cdt' => $now
+        ];
+
+        $this->db->where('id_jumlah_pinjaman', $id);
+        $this->db->update('jumlah_pinjaman', $data_yyyy);
+    }
+
+    public function del_jumlah_pinjaman($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'status' => 0,
+            'cdt' => $now
+        ];
+
+        $this->db->where('id_jumlah_pinjaman', $id);
+        $this->db->update('jumlah_pinjaman', $data_yyyy);
+    }
+
+
+
+    public function get_all_jangka_waktu()
+    {
+        return $this->db->order_by('int_jangka', 'ASC')->get_where('jangka_waktu')->result_array();
+    }
+
+    public function get_all_jangka_waktu_active()
+    {
+        return $this->db->order_by('int_jangka', 'ASC')->get_where('jangka_waktu', ['status' => 1])->result_array();
+    }
+
+    public function ins_new_jangka_waktu()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'int_jangka' => $this->input->post('yyyy', true),
+            'status' => 1,
+            'cdt' => $now
+        ];
+        $this->db->insert('jangka_waktu', $data_yyyy);
+    }
+
+    public function upd_jangka_waktu($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'int_jangka' => $this->input->post('yyyy', true),
+            'status' => 1,
+            'cdt' => $now
+        ];
+
+        $this->db->where('id_jangka_waktu', $id);
+        $this->db->update('jangka_waktu', $data_yyyy);
+    }
+
+    public function del_jangka_waktu($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'status' => 0,
+            'cdt' => $now
+        ];
+
+        $this->db->where('id_jangka_waktu', $id);
+        $this->db->update('jangka_waktu', $data_yyyy);
+    }
 }

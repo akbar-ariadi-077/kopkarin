@@ -81,7 +81,7 @@
                 </li>
 
                 <li
-                    class="menu<?= ($this->uri->segment(2) == 'pinjaman' ? ' active' : (($this->uri->segment(2) == 'pengajuan') && ($this->uri->segment(3) == '') ? ' active' : ($this->uri->segment(2) == 'pengajuan_cek' ? ' active' : ''))); ?>">
+                    class="menu<?= ($this->uri->segment(2) == 'pinjaman' ? ' active' : (($this->uri->segment(2) == 'pengajuan') && ($this->uri->segment(3) == '') ? ' active' : ($this->uri->segment(2) == 'pengajuan_cek' ? ' active' : ($this->uri->segment(2) == 'pengajuan_topup' ? ' active' : '')))); ?>">
                     <a href="#home" data-bs-toggle="collapse"
                         aria-expanded="<?= ($this->uri->segment(2) == 'pinjaman') ? 'true' : 'false'; ?>"
                         class="dropdown-toggle">

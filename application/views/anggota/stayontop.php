@@ -47,6 +47,26 @@
                                         </h5>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td width="50%" align="right">
+                                        <h6>Tabungan&nbsp;&nbsp;</h6>
+                                    </td>
+                                    <td width="50%" align="left">
+                                        <h5>
+                                            <span class="badge badge-light-dark">
+                                                <b>
+                                                    <?php
+                                                    $saldo = 0;
+                                                    foreach ($a_tabungan as $y):
+                                                        $saldo = $saldo + ($y['tabungan_anggota'] + $y['tabungan_anggota_diambil']);
+                                                    endforeach;
+                                                    ?>
+                                                    <?= (isset($saldo)) ? number_format($saldo) : '0'; ?>
+                                                </b>
+                                            </span>
+                                        </h5>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         </p>

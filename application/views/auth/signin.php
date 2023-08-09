@@ -6,23 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Login Anggota Kopkar PT. Sorini | PT. Sorini Gempol </title>
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>/assets/src/assets/img/favicon.ico" />
-    <link href="<?= base_url(); ?>/assets/layouts/horizontal-light-menu/css/light/loader.css" rel="stylesheet"
+    <link href="<?= base_url(); ?>assets/layouts/horizontal-light-menu/css/light/loader.css" rel="stylesheet"
         type="text/css" />
-    <link href="<?= base_url(); ?>/assets/layouts/horizontal-light-menu/css/dark/loader.css" rel="stylesheet"
+    <link href="<?= base_url(); ?>assets/layouts/horizontal-light-menu/css/dark/loader.css" rel="stylesheet"
         type="text/css" />
-    <script src="../layouts/horizontal-light-menu/loader.js"></script>
+    <script src="<?= base_url(); ?>assets/layouts/horizontal-light-menu/loader.js"></script>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="<?= base_url(); ?>/assets/src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?= base_url(); ?>/assets/layouts/horizontal-light-menu/css/light/plugins.css" rel="stylesheet"
+    <link href="<?= base_url(); ?>assets/src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?= base_url(); ?>assets/layouts/horizontal-light-menu/css/light/plugins.css" rel="stylesheet"
         type="text/css" />
-    <link href="<?= base_url(); ?>/assets/src/assets/css/light/authentication/auth-boxed.css" rel="stylesheet"
+    <link href="<?= base_url(); ?>assets/src/assets/css/light/authentication/auth-boxed.css" rel="stylesheet"
         type="text/css" />
-    <link href="<?= base_url(); ?>/assets/layouts/horizontal-light-menu/css/dark/plugins.css" rel="stylesheet"
+    <link href="<?= base_url(); ?>assets/layouts/horizontal-light-menu/css/dark/plugins.css" rel="stylesheet"
         type="text/css" />
-    <link href="<?= base_url(); ?>/assets/src/assets/css/dark/authentication/auth-boxed.css" rel="stylesheet"
+    <link href="<?= base_url(); ?>assets/src/assets/css/dark/authentication/auth-boxed.css" rel="stylesheet"
         type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 </head>
@@ -89,7 +88,7 @@
         </div>
     </div>
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="<?= base_url(); ?>/assets/src/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>assets/src/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
         function myFunction() {
             var x = document.getElementById("myInput");

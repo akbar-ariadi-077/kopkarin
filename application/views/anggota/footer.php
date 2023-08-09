@@ -49,6 +49,14 @@
     feather.replace();
 </script>
 <script src="<?= base_url(); ?>assets/src/plugins/src/table/datatable/datatables.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/jquery-3.7.0.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/jquery.dataTables.min.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/dataTables.buttons.min.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/jszip.min.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/pdfmake.min.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/vfs_fonts.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/buttons.html5.min.js"></script>
+<script src="<?= base_url(); ?>assets/src/datatable/buttons.print.min.js"></script>
 <script>
     $('#zero-config').DataTable({
         "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
@@ -66,7 +74,11 @@
         },
         "stripeClasses": [],
         "lengthMenu": [5, 7, 10, 12, 20, 24, 36, 48, 50],
-        "pageLength": 10
+        "pageLength": 10,
+        "dom": 'Bfrtip',
+        "buttons": [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
 </script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->

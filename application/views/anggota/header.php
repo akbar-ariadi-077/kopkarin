@@ -38,6 +38,8 @@
         href="<?= base_url(); ?>assets/src/plugins/css/light/table/datatable/dt-global_style.css">
     <link rel="stylesheet" type="text/css"
         href="<?= base_url(); ?>assets/src/plugins/css/dark/table/datatable/dt-global_style.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/src/datatable/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/src/datatable/buttons.dataTables.min.css">
 
     <!-- animate -->
     <link href="<?= base_url(); ?>assets/src/plugins/src/animate/animate.css" rel="stylesheet" type="text/css" />
