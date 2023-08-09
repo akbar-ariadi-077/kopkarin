@@ -74,11 +74,12 @@
         },
         "stripeClasses": [],
         "lengthMenu": [5, 7, 10, 12, 20, 24, 36, 48, 50],
-        "pageLength": 10,
-        "dom": 'Bfrtip',
-        "buttons": [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+        "pageLength": 10
+        // ,
+        // "dom": 'Bfrtip',
+        // "buttons": [
+        //     'copy', 'csv', 'excel', 'pdf', 'print'
+        // ]
     });
 </script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->

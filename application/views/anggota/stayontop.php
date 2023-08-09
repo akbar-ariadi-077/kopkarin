@@ -17,7 +17,7 @@
                     </div>
                     <div class="text-center">
                         <p class="">
-                            <button type="button" class="btn btn-light-success mb-2 me-4 btn-lg" data-bs-toggle="modal"
+                            <button type="button" class="btn btn-light-success btn-lg" data-bs-toggle="modal"
                                 data-bs-target="#exampleModalCenter">CEK SALDO</button>
                             <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
