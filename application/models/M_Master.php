@@ -237,6 +237,11 @@ class M_Master extends CI_model
         return $this->db->order_by('int_pinjaman', 'ASC')->get_where('jumlah_pinjaman', ['status' => 1])->result_array();
     }
 
+    public function get_jumlah_pinjaman_by_id($id)
+    {
+        return $this->db->get_where('jumlah_pinjaman', ['id' => $id])->row_array();
+    }
+
     public function ins_new_jumlah_pinjaman()
     {
         date_default_timezone_set('Asia/Jakarta');
@@ -261,7 +266,7 @@ class M_Master extends CI_model
             'cdt' => $now
         ];
 
-        $this->db->where('id_jumlah_pinjaman', $id);
+        $this->db->where('id', $id);
         $this->db->update('jumlah_pinjaman', $data_yyyy);
     }
 
@@ -275,7 +280,7 @@ class M_Master extends CI_model
             'cdt' => $now
         ];
 
-        $this->db->where('id_jumlah_pinjaman', $id);
+        $this->db->where('id', $id);
         $this->db->update('jumlah_pinjaman', $data_yyyy);
     }
 
@@ -289,6 +294,11 @@ class M_Master extends CI_model
     public function get_all_jangka_waktu_active()
     {
         return $this->db->order_by('int_jangka', 'ASC')->get_where('jangka_waktu', ['status' => 1])->result_array();
+    }
+
+    public function get_jangka_waktu_by_id($id)
+    {
+        return $this->db->get_where('jangka_waktu', ['id' => $id])->row_array();
     }
 
     public function ins_new_jangka_waktu()
@@ -315,7 +325,7 @@ class M_Master extends CI_model
             'cdt' => $now
         ];
 
-        $this->db->where('id_jangka_waktu', $id);
+        $this->db->where('id', $id);
         $this->db->update('jangka_waktu', $data_yyyy);
     }
 
@@ -329,7 +339,7 @@ class M_Master extends CI_model
             'cdt' => $now
         ];
 
-        $this->db->where('id_jangka_waktu', $id);
+        $this->db->where('id', $id);
         $this->db->update('jangka_waktu', $data_yyyy);
     }
 }

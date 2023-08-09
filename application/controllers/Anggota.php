@@ -169,10 +169,13 @@ class Anggota extends CI_Controller
 
         $data['input_jumlah_pinjaman'] = $this->input->post('jumlah_pinjaman', true);
         $data['input_jangka_waktu'] = $this->input->post('jangka_waktu', true);
-        $data['bunga'] = 9;
-        $data['bunga_per_tahun'] = $this->input->post('jumlah_pinjaman', true) * (9 / 100);
-        $data['angsuran_pokok_per_bulan'] = $this->input->post('jumlah_pinjaman', true) / $this->input->post('jangka_waktu', true);
-        $data['angsuran_bunga_per_bulan'] = $data['bunga_per_tahun'] / $this->input->post('jangka_waktu', true);
+        $data['jumlah_pinjaman'] = $this->M_Master->get_jumlah_pinjaman_by_id($this->input->post('jumlah_pinjaman', true));
+        $data['jangka_waktu'] = $this->M_Master->get_jangka_waktu_by_id($this->input->post('jangka_waktu', true));
+
+        $data['bunga'] = 0.75 * $data['jangka_waktu']['int_jangka'];
+        $data['bunga_per_tahun'] = $data['jumlah_pinjaman']['int_pinjaman'] * ((0.75 * $data['jangka_waktu']['int_jangka']) / 100);
+        $data['angsuran_pokok_per_bulan'] = $data['jumlah_pinjaman']['int_pinjaman'] / $data['jangka_waktu']['int_jangka'];
+        $data['angsuran_bunga_per_bulan'] = $data['bunga_per_tahun'] / $data['jangka_waktu']['int_jangka'];
         $data['bayar_per_bulan'] = $data['angsuran_pokok_per_bulan'] + $data['angsuran_bunga_per_bulan'];
         $data['sisa_pinjaman_lama'] = $data['sisa_pinjaman'];
         if ($sisa_angsuran > 3) {
@@ -182,7 +185,7 @@ class Anggota extends CI_Controller
         } else {
             $data['sisa_bunga_lama'] = 0;
         }
-        $data['total_didapat'] = $data['input_jumlah_pinjaman'] - $data['sisa_pinjaman_lama'] - $data['sisa_bunga_lama'];
+        $data['total_didapat'] = $data['jumlah_pinjaman']['int_pinjaman'] - $data['sisa_pinjaman_lama'] - $data['sisa_bunga_lama'];
 
         date_default_timezone_set('Asia/Jakarta');
         $today_year = date('Y');

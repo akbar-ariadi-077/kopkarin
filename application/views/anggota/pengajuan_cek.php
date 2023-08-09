@@ -32,9 +32,9 @@
                                             <h4>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= number_format($input_jumlah_pinjaman); ?>
+                                                        <?= number_format($jumlah_pinjaman['int_pinjaman']); ?>
                                                         <input type="hidden" name="jumlah_pinjaman"
-                                                            value="<?= $input_jumlah_pinjaman; ?>">
+                                                            value="<?= $jumlah_pinjaman['int_pinjaman']; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -48,9 +48,9 @@
                                             <h4>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= number_format($input_jangka_waktu); ?>
+                                                        <?= number_format($jangka_waktu['int_jangka']); ?>x
                                                         <input type="hidden" name="jangka_waktu"
-                                                            value="<?= $input_jangka_waktu; ?>">
+                                                            value="<?= $jangka_waktu['int_jangka']; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -156,7 +156,7 @@
                                             <h4>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= number_format($input_jumlah_pinjaman); ?>
+                                                        <?= number_format($jumlah_pinjaman['int_pinjaman']); ?>
                                                     </b>
                                                 </span>
                                             </h4>
@@ -199,6 +199,25 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($total_didapat); ?>
+                                                    </b>
+                                                </span>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" align="right">
+                                            <h6>Diajukan &nbsp;&nbsp;</h6>
+                                        </td>
+                                        <td width="50%" align="left">
+                                            <h4>
+                                                <span class="badge badge-light-dark">
+                                                    <b>
+                                                        <?php
+                                                        date_default_timezone_set('Asia/Jakarta');
+                                                        $now = date('d-M-Y');
+                                                        $no2 = date('H:i:s');
+                                                        ?>
+                                                        <?= $now . ' pukul ' . $no2; ?>
                                                     </b>
                                                 </span>
                                             </h4>
