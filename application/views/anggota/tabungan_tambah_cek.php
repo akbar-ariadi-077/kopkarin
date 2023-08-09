@@ -42,6 +42,22 @@
                                     </tr>
                                     <tr>
                                         <td width="50%" align="right">
+                                            <h6>Sistem Tabungan&nbsp;&nbsp;</h6>
+                                        </td>
+                                        <td width="50%" align="left">
+                                            <h4>
+                                                <span class="badge badge-light-dark">
+                                                    <b>
+                                                        <?= ($input_sistem_menabung); ?>
+                                                        <input type="hidden" name="sistem_menabung"
+                                                            value="<?= $input_sistem_menabung; ?>">
+                                                    </b>
+                                                </span>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" align="right">
                                             <h6>Tanggal Pengajuan&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">

@@ -43,4 +43,46 @@ class M_Tabungan extends CI_model
                  ";
         return $this->db->query($query)->result_array();
     }
+
+    public function get_tambah_tabungan_by_nik($payroll)
+    {
+        return $this->db->get_where('tabungan_tambah', ['status_pengajuan' => 'Diajukan', 'id_anggota' => $payroll])->result_array();
+    }
+
+    public function ins_tambah_tabungan($payroll)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'id_anggota' => $payroll,
+            'id_tahun' => $this->input->post('tahun_menabung', true),
+            'id_bulan' => $this->input->post('bulan_menabung', true),
+            'tanggal_pengajuan' => $this->input->post('tanggal_pengajuan', true),
+            'jumlah_menabung' => $this->input->post('jumlah_menabung', true),
+            'sistem_pemotongan' => $this->input->post('sistem_menabung', true),
+            'status_pengajuan' => 'Diajukan',
+            'cdt' => $now
+        ];
+        $this->db->insert('tabungan_tambah', $data_yyyy);
+    }
+
+    // public function upd_tambah_tabungan($payroll)
+    // {
+    //     date_default_timezone_set('Asia/Jakarta');
+    //     $now = date('Y-m-d H:i:s');
+
+    //     $data_yyyy = [
+    //         'id_anggota' => $payroll,
+    //         'id_tahun' => $this->input->post('tahun_pengajuan', true),
+    //         'id_bulan' => $this->input->post('bulan_pengajuan', true),
+    //         'tanggal_menabung' => $this->input->post('jumlah_pinjaman', true),
+    //         'jumlah_menabung' => $this->input->post('jumlah_pinjaman', true),
+    //         'status_pengajuan' => 'Diajukan',
+    //         'cdt' => $now
+    //     ];
+
+    //     $this->db->where('payroll_anggota', $payroll);
+    //     $this->db->update('tabungan', $data_yyyy);
+    // }
 }

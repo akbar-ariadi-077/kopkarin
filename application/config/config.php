@@ -23,8 +23,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/projects/sorini/ksp/';
-// $config['base_url'] = 'http://localhost/kopkarin/kopkarin_20230802/kopkarin/';
+// $config['base_url'] = 'http://localhost/projects/sorini/ksp/';
+$config['base_url'] = 'http://localhost/kopkarin/kopkarin_20230802/kopkarin/';
 /*
 |--------------------------------------------------------------------------
 | Index File
