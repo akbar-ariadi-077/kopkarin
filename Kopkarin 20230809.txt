@@ -1,0 +1,31 @@
+*AKBAR*
+1. first page = home page
+- siap pak, minta tolong saya diinfo utk homepage kira2 akan diisi dengan informasi apa
+2. user franki tidak bisa login
+- mohon maaf, ada kesalahan penulisan password, seharusnya password yg dipakai yknarf123
+3. menu pengajuan pinjaman uang dan pinjaman barang
+- sudah ditambahkan, bisa dicoba lagi
+4. menu penambahan tabungan
+- utk case ini, penambahan tabungan alurnya mau seperti apa ya pak? apakah nnti dari pengurus yg input shg anggota ckup liat update nya saja, atau mau sistem pengajuan tabungan kemudian di approve oleh pengurus?
+5. menu penarikan tabungan
+- siap, sedang proses develop, utk alurnya nanti dibutuhkan approval dari pengurus
+6. menu print
+- minta tolong dijelaskan menu print yg dimaksud
+
+
+*DONE*
+1. mas total tabungan sukarela nya tampilkn jg ya di bawah simpanan wajib, kalau gk ada simpanan sukarela bs di isi = 0 = *DONE*
+3. no6, mksut saya kn di simpanan sukarela, pnjaman ada detail kyak gini di bawah. ada menu anggota bs print or convert ke pdf mas unt di download = *DONE*
+4. hitungan salah mas di angsuran bunga perbulan. jk pnjam 10jt maka 10jtx0.75%= 75rb perbulan.   0.75=9/12. bunga 9% itu pertahun, maka jk perbulan = 0.75% = *DONE*
+5. unt status jgn lupa nnti ada step di ajukan - disetuju/di tolak-di transfer = *DONE*
+6. option jumlah pnjaman ini apakah bs admin edit? or di buat manual. krn bnyak anggota yg pnjam dgn nilai ganjil 😅, misal 11.500.000 dll. = *DONE*
+7. ststus ajukan pnjaman barang tp di menu trtulis top up = *DONE*
+10. yg ini kalau bs di buatkn menu aja "cek saldo" nnti baru tampilkkn smpanan pokok, wajib, sukarela = *DONE*
+9. no 4 harusnya tetep ada sistem pengajukan n di aprrove pengurus. jd anggota punya record n bukti. sistem tab jg ada 2, yaitu 1. pot payroll gaji 2. transfer dlm nominal trtentu = *DONE*
+11. no 1, smntara dikasih aja logo koperasi n di bawah ada tulisan "koperasi karyawan pt sorini agro asia corporindo" tp kalau uda final admin dikasih menu unt gnti2 itu kyak gnti walpaper windows. krn nnti info2 koperasi akan di tmpilkn dstu = *DONE*
+13. saya coba pakai user mukri, saat pengajukan pnjaman tdk trcatat waktu pengajuan (tgl, bln, thn) = *DONE*
+
+*TBC*
+2. no.1,4 kalau bs kt sett waktu ketemu biar nyambung discuss nya = TBC
+8. pnjaman barang kt brsifat akumulatif bkn brsifat top up. misal : beli laptop 10jt dgn angsuran 500. lnjut beli  hp 5 jt angsuran 1jt, maka total angsuran barang 1.5jt. pencairan akan sesuai dgn yg di ajukan. tdk trpotong = TBC
+12. mas mnta tolong di simulasi jk status di trima/tolak n di tranfer y,  suwon sblmnya = TBC
