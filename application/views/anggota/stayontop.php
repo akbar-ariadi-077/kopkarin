@@ -85,6 +85,22 @@
                                                         </h5>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <td width="50%" align="right">
+                                                        <h6>Sisa Pinjaman Uang&nbsp;&nbsp;</h6>
+                                                    </td>
+                                                    <td width="50%" align="left">
+                                                        <h5>
+                                                            <span class="badge badge-light-dark">
+                                                                <b>
+                                                                    <?php foreach ($s_tabungan as $y): ?>
+                                                                        <?= (isset($y['jumlah_tabungan'])) ? number_format($y['jumlah_tabungan']) : '0'; ?>
+                                                                    <?php endforeach; ?>
+                                                                </b>
+                                                            </span>
+                                                        </h5>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

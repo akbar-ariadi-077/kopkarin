@@ -48,7 +48,7 @@
                                             <h4>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= number_format($jangka_waktu['int_jangka']); ?>x
+                                                        <?= number_format($jangka_waktu['int_jangka']); ?> bulan
                                                         <input type="hidden" name="jangka_waktu"
                                                             value="<?= $jangka_waktu['int_jangka']; ?>">
                                                     </b>
@@ -57,6 +57,22 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td width="50%" align="right">
+                                            <h6>Bunga per Bulan (%)&nbsp;&nbsp;</h6>
+                                        </td>
+                                        <td width="50%" align="left">
+                                            <h4>
+                                                <span class="badge badge-light-dark">
+                                                    <b>
+                                                        <?= number_format($bunga_per_bulan, 2); ?> %
+                                                        <input type="hidden" name="bunga_pinjaman_persen"
+                                                            value="<?= $bunga; ?>">
+                                                    </b>
+                                                </span>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <!-- <tr>
                                         <td width="50%" align="right">
                                             <h6>Bunga&nbsp;&nbsp;</h6>
                                         </td>
@@ -71,7 +87,7 @@
                                                 </span>
                                             </h4>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                     <tr>
                                         <td width="50%" align="right">
                                             <h6>Bunga per Tahun&nbsp;&nbsp;</h6>
@@ -185,6 +201,20 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($sisa_bunga_lama); ?>
+                                                    </b>
+                                                </span>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" align="right">
+                                            <h6>Sisa Angsuran Lama&nbsp;&nbsp;</h6>
+                                        </td>
+                                        <td width="50%" align="left">
+                                            <h4>
+                                                <span class="badge badge-light-dark">
+                                                    <b>
+                                                        <?= number_format($sisa_angsuran_lama); ?>x Angsuran
                                                     </b>
                                                 </span>
                                             </h4>

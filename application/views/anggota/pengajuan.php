@@ -51,12 +51,13 @@
                                                 <?php foreach ($m_pinjaman as $m): ?>
                                                     <option value="<?= $m['id']; ?>"><?= number_format($m['int_pinjaman']); ?></option>
                                                 <?php endforeach; ?>
+                                                <option value="Lainnya">Lainnya</b></option>
                                             </select>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="50%" align="right">
-                                            <h6>Jangka Waktu&nbsp;&nbsp;</h6>
+                                            <h6>Jangka Waktu (Bulan)&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
                                             <select class="form-control form-control-sm" name="jangka_waktu" required>
