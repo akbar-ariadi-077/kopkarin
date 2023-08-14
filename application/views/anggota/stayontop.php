@@ -17,8 +17,12 @@
                     </div>
                     <div class="text-center">
                         <p class="">
-                            <button type="button" class="btn btn-light-success btn-lg" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalCenter">CEK SALDO</button>
+                            <!-- <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/cek_saldo_3r.png" alt="Cek Saldo"
+                                    width="90" height="140">
+                            </a> -->
+                            <!-- <button type="button" class="btn btn-light-success btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalCenter">CEK SALDO</button> -->
                             <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -93,8 +97,24 @@
                                                         <h5>
                                                             <span class="badge badge-light-dark">
                                                                 <b>
-                                                                    <?php foreach ($s_tabungan as $y): ?>
-                                                                        <?= (isset($y['jumlah_tabungan'])) ? number_format($y['jumlah_tabungan']) : '0'; ?>
+                                                                    <?php foreach ($a_sisa_pinj as $y): ?>
+                                                                        <?= (isset($y['sisa_pinjaman'])) ? number_format($y['sisa_pinjaman']) : '0'; ?>
+                                                                    <?php endforeach; ?>
+                                                                </b>
+                                                            </span>
+                                                        </h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="50%" align="right">
+                                                        <h6>Sisa Pinjaman Barang&nbsp;&nbsp;</h6>
+                                                    </td>
+                                                    <td width="50%" align="left">
+                                                        <h5>
+                                                            <span class="badge badge-light-dark">
+                                                                <b>
+                                                                    <?php foreach ($a_sisa_bara as $y): ?>
+                                                                        <?= (isset($y['sisa_pinjaman'])) ? number_format($y['sisa_pinjaman']) : '0'; ?>
                                                                     <?php endforeach; ?>
                                                                 </b>
                                                             </span>
@@ -176,6 +196,12 @@
                             </a>
                         </div>
                         <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/cek_saldo_3r.png" alt="Cek Saldo"
+                                    width="90" height="140">
+                            </a>
+                        </div>
+                        <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
                             <a href="<?= base_url(); ?>anggota/tabungan#data">
                                 <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/tabungan_3r.png"
                                     alt="Data Tabungan" width="90" height="140">
@@ -183,19 +209,26 @@
                             </a>
                         </div>
                         <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
+                            <a href="<?= base_url(); ?>anggota/tabungan_kelola#data">
+                                <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/kelola_tabungan_3r.png"
+                                    alt="Kelola Tabungan" width="90" height="140">
+                                <!-- <p class=""><b>Data<br>Tabungan</b></p> -->
+                            </a>
+                        </div>
+                        <!-- <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
                             <a href="<?= base_url(); ?>anggota/tabungan_tambah#data">
                                 <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/tabungan_tambah_3r.png"
                                     alt="Tambah Tabungan" width="90" height="140">
-                                <!-- <p class=""><b>Tambah<br>Tabungan</b></p> -->
+                                -- <p class=""><b>Tambah<br>Tabungan</b></p> --
                             </a>
                         </div>
                         <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
                             <a href="<?= base_url(); ?>anggota/tabungan_ambil#data">
                                 <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/tabungan_ambil_3r.png"
                                     alt="Ambil Tabungan" width="90" height="140">
-                                <!-- <p class=""><b>Ambil<br>Tabungan</b></p> -->
+                                <- <p class=""><b>Ambil<br>Tabungan</b></p> --
                             </a>
-                        </div>
+                        </div> -->
                         <div class="col-xl-1 col-lg-3 col-md-3 col-sm-6 col-6">
                             <a href="<?= base_url(); ?>anggota/pengajuan#data">
                                 <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/pengajuan_pinjaman_3r.png"

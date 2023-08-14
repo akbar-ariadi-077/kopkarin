@@ -25,6 +25,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Bulan</th>
+                                    <th>Tahun</th>
                                     <th>Jumlah</th>
                                     <th>Diambil</th>
                                     <th>Saldo</th>
@@ -43,7 +44,10 @@
                                             <?= $z; ?>
                                         </td>
                                         <td align="left">
-                                            <?= $y['txt_pr_id_bulan'] . ' ' . $y['text_tahun']; ?>
+                                            <?= $y['txt_pr_id_bulan']; ?>
+                                        </td>
+                                        <td align="left">
+                                            <?= $y['text_tahun']; ?>
                                         </td>
                                         <td align="right">
                                             <?= number_format($y['tabungan_anggota']); ?>

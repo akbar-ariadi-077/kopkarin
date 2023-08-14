@@ -23,20 +23,6 @@
                             <tbody>
                                 <tr>
                                     <td width="50%" align="right">
-                                        <h6>Nama Barang&nbsp;&nbsp;</h6>
-                                    </td>
-                                    <td width="50%" align="left">
-                                        <h4>
-                                            <span class="badge badge-light-dark">
-                                                <b>
-                                                    <?= (isset($a_pengajuan['nama_barang'])) ? $a_pengajuan['nama_barang'] : '-'; ?>
-                                                </b>
-                                            </span>
-                                        </h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="50%" align="right">
                                         <h6>Bulan Pinjam&nbsp;&nbsp;</h6>
                                     </td>
                                     <td width="50%" align="left">
@@ -78,30 +64,45 @@
                                         </h5>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td width="50%" align="right">
+                                        <h6>Sisa Pinjaman&nbsp;&nbsp;</h6>
+                                    </td>
+                                    <td width="50%" align="left">
+                                        <h5>
+                                            <span class="badge badge-light-dark">
+                                                <b>
+                                                    <?php foreach ($a_sisa_bara as $y): ?>
+                                                        <?= (isset($y['sisa_pinjaman'])) ? number_format($y['sisa_pinjaman']) : '0'; ?>
+                                                    <?php endforeach; ?>
+                                                </b>
+                                            </span>
+                                        </h5>
+                                    </td>
+                                </tr>
                                 <?php
                                 /*
                                 <tr>
-                                 <td width="50%" align="right">
-                                     <h6>Bunga&nbsp;&nbsp;</h6>
-                                 </td>
-                                 <td width="50%" align="left">
-                                     <h5>
-                                         <span class="badge badge-light-dark">
-                                             <b>
-                                                 <?= (isset($a_pengajuan['bunga_pinjaman_persen'])) ? number_format($a_pengajuan['bunga_pinjaman_persen'], 1) : '0'; ?>
-                                                 %
-                                             </b>
-                                         </span>
-                                     </h5>
-                                 </td>
+                                    <td width="50%" align="right">
+                                        <h6>Nama Barang&nbsp;&nbsp;</h6>
+                                    </td>
+                                    <td width="50%" align="left">
+                                        <h4>
+                                            <span class="badge badge-light-dark">
+                                                <b>
+                                                    <?= (isset($a_pengajuan['nama_barang'])) ? $a_pengajuan['nama_barang'] : '-'; ?>
+                                                </b>
+                                            </span>
+                                        </h4>
+                                    </td>
                                 </tr>
                                 <tr>
-                                 <td width="50%" align="right">
-                                     <h6>Bunga per Tahun&nbsp;&nbsp;</h6>
-                                 </td>
-                                 <td width="50%" align="left">
-                                     <h5>
-                                         <span class="badge badge-light-dark">
+                                <td width="50%" align="right">
+                                <h6>Bunga per Tahun&nbsp;&nbsp;</h6>
+                                </td>
+                                <td width="50%" align="left">
+                                <h5>
+                                <span class="badge badge-light-dark">
                                              <b>
                                                  <?= (isset($a_pengajuan['bunga_pinjaman'])) ? number_format($a_pengajuan['bunga_pinjaman']) : '0'; ?>
                                              </b>
@@ -120,6 +121,8 @@
                                     <!-- <th>#</th> -->
                                     <th>Angs Ke</th>
                                     <th>Bulan</th>
+                                    <th>Tahun</th>
+                                    <th>Nama Barang</th>
                                     <th>Angs Pokok</th>
                                     <th>Angs Bunga</th>
                                     <th>Total</th>
@@ -144,7 +147,13 @@
                                             <?= $y['angsuran_ke']; ?>
                                         </td>
                                         <td align="left">
-                                            <?= $y['txt_pr_id_bulan'] . ' ' . $y['text_tahun']; ?>
+                                            <?= $y['txt_pr_id_bulan']; ?>
+                                        </td>
+                                        <td align="left">
+                                            <?= $y['text_tahun']; ?>
+                                        </td>
+                                        <td align="left">
+                                            <?= $y['nama_barang']; ?>
                                         </td>
                                         <td align="right">
                                             <?= number_format($y['angsuran_pokok']); ?>

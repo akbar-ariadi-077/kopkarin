@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Login Anggota Kopkar PT. Sorini | PT. Sorini Gempol </title>
+    <title>Login Area | PT. Sorini Agro Asia Corporindo </title>
     <link href="<?= base_url(); ?>assets/layouts/horizontal-light-menu/css/light/loader.css" rel="stylesheet"
         type="text/css" />
     <link href="<?= base_url(); ?>assets/layouts/horizontal-light-menu/css/dark/loader.css" rel="stylesheet"
