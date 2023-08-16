@@ -74,7 +74,7 @@
         },
         "stripeClasses": [],
         "lengthMenu": [5, 7, 10, 12, 20, 24, 36, 48, 50],
-        "pageLength": 10
+        "pageLength": 12
         // ,
         // "dom": 'Bfrtip',
         // "buttons": [

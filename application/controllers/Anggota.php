@@ -74,6 +74,30 @@ class Anggota extends CI_Controller
         $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
         $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
 
+        $data['m_pinjaman'] = $this->M_Master->get_all_jumlah_pinjaman_active();
+        $data['m_jangka'] = $this->M_Master->get_all_jangka_waktu_active();
+
+        $sisa_angsuran = 0;
+        if (isset($data['a_pengajuan'])) {
+            if ($data['a_pengajuan']['status_pinjaman'] == 'Belum Lunas') {
+                $sisa_angsuran = $data['a_pengajuan']['jangka_waktu'] - $data['a_pengajuan']['angsuran_ke'];
+            } else {
+                $sisa_angsuran = 0;
+            }
+        } else {
+            $sisa_angsuran = 0;
+        }
+
+        if ($sisa_angsuran > 3) {
+            $data['sisa_bunga_lama'] = ($data['a_pengajuan']['bunga_pinjaman'] / $data['a_pengajuan']['jangka_waktu']) * 2;
+        } else if (($sisa_angsuran > 0) && ($sisa_angsuran <= 3)) {
+            $data['sisa_bunga_lama'] = ($data['a_pengajuan']['bunga_pinjaman'] / $data['a_pengajuan']['jangka_waktu']) * 1;
+        } else {
+            $data['sisa_bunga_lama'] = 0;
+        }
+
+        $data['sisa_angsuran_lama'] = $sisa_angsuran;
+
         $this->load->view('anggota/header');
         $this->load->view('include/loader');
         $this->load->view('anggota/navbar', $data);

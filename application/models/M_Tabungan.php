@@ -25,7 +25,7 @@ class M_Tabungan extends CI_model
                     JOIN metode_bayar m ON p.metode_bayar = m.id_paytod
                     WHERE p.payroll_anggota = $payroll
                     GROUP BY b.txt_pr_id_bulan, t.text_tahun, a.payroll_anggota
-                    ORDER BY p.tahun_tabungan, p.bulan_tabungan;
+                    ORDER BY p.tahun_tabungan DESC, p.bulan_tabungan DESC;
                  ";
         return $this->db->query($query)->result_array();
     }
