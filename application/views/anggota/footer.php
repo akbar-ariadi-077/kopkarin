@@ -40,7 +40,10 @@
 <script src="<?= base_url(); ?>assets/src/plugins/src/filepond/FilePondPluginImageTransform.min.js"></script>
 <script src="<?= base_url(); ?>assets/src/plugins/src/filepond/filepondPluginFileValidateSize.min.js"></script>
 <script src="<?= base_url(); ?>assets/src/assets/js/custom.js"></script>
-<!-- END GLOBAL MANDATORY SCRIPTS -->
+<script src="<?= base_url(); ?>assets/src/plugins/src/notification/snackbar/snackbar.min.js"></script>
+<script src="<?= base_url(); ?>assets/src/plugins/src/sweetalerts2/sweetalerts2.min.js"></script>
+<script src="<?= base_url(); ?>assets/src/assets/js/users/account-settings.js"></script>
+<!--  END CUSTOM SCRIPTS FILE  -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 <script src="<?= base_url(); ?>assets/src/assets/js/scrollspyNav.js"></script>
