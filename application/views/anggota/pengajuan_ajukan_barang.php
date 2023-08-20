@@ -143,15 +143,15 @@
                     </div>
                 </div>
             </div>
-            <?php /*if ($a_pengajuan['status_pinjaman'] == 'Belum Lunas'): ?>
- <div class="row">
-     <div class="col-lg-12 col-md-12 text-center">
-         <a href="<?= base_url(); ?>anggota/pengajuan_topup_barang" class="btn btn-danger mb-2 me-4 btn-lg">
-             <b>TOP UP SALDO PINJAMAN</b>
-         </a>
-     </div>
- </div>
-<?php endif;*/?>
+            <?php if ($a_pengajuan['status_pinjaman'] == 'Belum Lunas'): ?>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 text-center">
+                        <a href="<?= base_url(); ?>anggota/pengajuan_barang_baru" class="btn btn-danger mb-2 me-4 btn-lg">
+                            <b>PENGAJUAN BARU</b>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <!--  END CONTENT AREA  -->
     </div>

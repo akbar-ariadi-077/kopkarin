@@ -82,7 +82,7 @@
                                             <h4>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= number_format($bunga, 1); ?> %
+                                                        <?= number_format($bunga, 2); ?> %
                                                         <input type="hidden" name="bunga_pinjaman_persen" value="<?= $bunga; ?>">
                                                     </b>
                                                 </span>
@@ -91,7 +91,7 @@
                                     </tr>
                                     <tr>
                                         <td width="50%" align="right">
-                                            <h6>Bunga per Tahun&nbsp;&nbsp;</h6>
+                                            <h6>Total Bunga Selama Angsuran&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
                                             <h4>
@@ -179,6 +179,20 @@
                                     </tr>
                                     <tr>
                                         <td width="50%" align="right">
+                                            <h6>Jumlah Bunga Baru&nbsp;&nbsp;</h6>
+                                        </td>
+                                        <td width="50%" align="left">
+                                            <h4>
+                                                <span class="badge badge-light-dark">
+                                                    <b>
+                                                        <?= number_format($bunga_per_tahun); ?>
+                                                    </b>
+                                                </span>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" align="right">
                                             <h6>Sisa Pinjaman Lama&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
@@ -207,7 +221,7 @@
                                     </tr>
                                     <tr>
                                         <td width="50%" align="right">
-                                            <h6>Total yang didapat&nbsp;&nbsp;</h6>
+                                            <h6>Total Pinjaman Barang&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
                                             <h4>

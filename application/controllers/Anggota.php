@@ -355,7 +355,7 @@ class Anggota extends CI_Controller
         } else {
             $data['sisa_bunga_lama'] = 0;
         }
-        $data['total_didapat'] = $data['input_jumlah_pinjaman'] - $data['sisa_pinjaman_lama'] - $data['sisa_bunga_lama'];
+        $data['total_didapat'] = $data['input_jumlah_pinjaman'] + $data['sisa_pinjaman_lama'] + $data['sisa_bunga_lama'] + $data['bunga_per_tahun'];
 
         date_default_timezone_set('Asia/Jakarta');
         $today_year = date('Y');
@@ -383,16 +383,16 @@ class Anggota extends CI_Controller
         $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
         $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
 
-        if (isset($data['a_pengajuan'])) {
-            $this->M_Pengajuan->upd_new_pengajuan_barang($data['m_iduser_ro']['id_anggota']);
-        } else {
-            $this->M_Pengajuan->ins_new_pengajuan_barang($data['m_iduser_ro']['id_anggota']);
-        }
+        // if (isset($data['a_pengajuan'])) {
+        //     $this->M_Pengajuan->upd_new_pengajuan_barang($data['m_iduser_ro']['id_anggota']);
+        // } else {
+        $this->M_Pengajuan->ins_new_pengajuan_barang($data['m_iduser_ro']['id_anggota']);
+        // }
 
         $this->pengajuan('barang');
     }
 
-    public function pengajuan_topup_barang()
+    public function pengajuan_barang_baru()
     {
         $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
