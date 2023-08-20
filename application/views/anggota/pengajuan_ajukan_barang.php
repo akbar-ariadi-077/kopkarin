@@ -2,7 +2,6 @@
 <div id="content" class="main-content">
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
-            <?php include "stayontop.php"; ?>
 
             <!-- BREADCRUMB -->
 
@@ -11,6 +10,10 @@
             <br><br><br><br>
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    <button class="btn btn-dark" onclick="history.back()">
+                        <i data-feather="arrow-left"></i>
+                        <span class="btn-text-inner">Kembali</span>
+                    </button>
                     <div class="widget-content widget-content-area br-8">
                         <br><br>
                         <div class="row">
@@ -141,14 +144,14 @@
                 </div>
             </div>
             <?php /*if ($a_pengajuan['status_pinjaman'] == 'Belum Lunas'): ?>
-           <div class="row">
-               <div class="col-lg-12 col-md-12 text-center">
-                   <a href="<?= base_url(); ?>anggota/pengajuan_topup_barang" class="btn btn-danger mb-2 me-4 btn-lg">
-                       <b>TOP UP SALDO PINJAMAN</b>
-                   </a>
-               </div>
-           </div>
-       <?php endif;*/?>
+ <div class="row">
+     <div class="col-lg-12 col-md-12 text-center">
+         <a href="<?= base_url(); ?>anggota/pengajuan_topup_barang" class="btn btn-danger mb-2 me-4 btn-lg">
+             <b>TOP UP SALDO PINJAMAN</b>
+         </a>
+     </div>
+ </div>
+<?php endif;*/?>
         </div>
         <!--  END CONTENT AREA  -->
     </div>

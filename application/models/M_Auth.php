@@ -21,4 +21,18 @@ class M_Auth extends CI_model
     {
         return $this->db->get_where('user', ['usern' => $usern])->row_array();
     }
+
+    public function change_password($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_yyyy = [
+            'passw' => $this->input->post('password_baru1', true),
+            'cdt' => $now
+        ];
+
+        $this->db->where('id', $id);
+        $this->db->update('user', $data_yyyy);
+    }
 }

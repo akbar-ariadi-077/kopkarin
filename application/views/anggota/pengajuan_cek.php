@@ -2,7 +2,6 @@
 <div id="content" class="main-content">
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
-            <?php include "stayontop.php"; ?>
 
             <!-- BREADCRUMB -->
 
@@ -12,6 +11,10 @@
             <form class="form-control" method="post" action="<?= base_url(); ?>anggota/pengajuan_ajukan">
                 <div class="row layout-top-spacing">
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                        <button class="btn btn-dark" onclick="history.back()">
+                            <i data-feather="arrow-left"></i>
+                            <span class="btn-text-inner">Kembali</span>
+                        </button>
                         <div class="widget-content widget-content-area br-8">
                             <br><br>
                             <div class="row">
@@ -33,8 +36,7 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($jumlah_pinjaman['int_pinjaman']); ?>
-                                                        <input type="hidden" name="jumlah_pinjaman"
-                                                            value="<?= $jumlah_pinjaman['int_pinjaman']; ?>">
+                                                        <input type="hidden" name="jumlah_pinjaman" value="<?= $jumlah_pinjaman['int_pinjaman']; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -49,8 +51,7 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($jangka_waktu['int_jangka']); ?> bulan
-                                                        <input type="hidden" name="jangka_waktu"
-                                                            value="<?= $jangka_waktu['int_jangka']; ?>">
+                                                        <input type="hidden" name="jangka_waktu" value="<?= $jangka_waktu['int_jangka']; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -65,8 +66,7 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($bunga_per_bulan, 2); ?> %
-                                                        <input type="hidden" name="bunga_pinjaman_persen"
-                                                            value="<?= $bunga; ?>">
+                                                        <input type="hidden" name="bunga_pinjaman_persen" value="<?= $bunga; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -97,8 +97,7 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($bunga_per_tahun); ?>
-                                                        <input type="hidden" name="bunga_pinjaman"
-                                                            value="<?= $bunga_per_tahun; ?>">
+                                                        <input type="hidden" name="bunga_pinjaman" value="<?= $bunga_per_tahun; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -113,8 +112,7 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($angsuran_pokok_per_bulan); ?>
-                                                        <input type="hidden" name="angsuran_pokok"
-                                                            value="<?= $angsuran_pokok_per_bulan; ?>">
+                                                        <input type="hidden" name="angsuran_pokok" value="<?= $angsuran_pokok_per_bulan; ?>">
                                                     </b>
                                                 </span>
                                             </h4>

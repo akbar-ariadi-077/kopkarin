@@ -2,7 +2,6 @@
 <div id="content" class="main-content">
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
-            <?php include "stayontop.php"; ?>
 
             <!-- BREADCRUMB -->
 
@@ -12,6 +11,10 @@
             <form class="form-control" method="post" action="<?= base_url(); ?>anggota/tabungan_tambah_ajukan">
                 <div class="row layout-top-spacing">
                     <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                        <button class="btn btn-dark" onclick="history.back()">
+                            <i data-feather="arrow-left"></i>
+                            <span class="btn-text-inner">Kembali</span>
+                        </button>
                         <div class="widget-content widget-content-area br-8">
                             <br><br>
                             <div class="row">
@@ -33,8 +36,7 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= number_format($input_jumlah_menabung); ?>
-                                                        <input type="hidden" name="jumlah_menabung"
-                                                            value="<?= $input_jumlah_menabung; ?>">
+                                                        <input type="hidden" name="jumlah_menabung" value="<?= $input_jumlah_menabung; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -49,8 +51,7 @@
                                                 <span class="badge badge-light-dark">
                                                     <b>
                                                         <?= ($input_sistem_menabung); ?>
-                                                        <input type="hidden" name="sistem_menabung"
-                                                            value="<?= $input_sistem_menabung; ?>">
+                                                        <input type="hidden" name="sistem_menabung" value="<?= $input_sistem_menabung; ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -69,8 +70,7 @@
                                                         $date_now = date('Y-m-d');
                                                         echo $date_now;
                                                         ?>
-                                                        <input type="hidden" name="tanggal_pengajuan"
-                                                            value="<?= $date_now; ?>">
+                                                        <input type="hidden" name="tanggal_pengajuan" value="<?= $date_now; ?>">
                                                     </b>
                                                 </span>
                                             </h4>

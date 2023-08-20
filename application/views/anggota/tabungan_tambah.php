@@ -2,7 +2,6 @@
 <div id="content" class="main-content">
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
-            <?php include "stayontop.php"; ?>
 
             <!-- BREADCRUMB -->
 
@@ -11,6 +10,10 @@
             <br><br><br><br>
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    <button class="btn btn-dark" onclick="history.back()">
+                        <i data-feather="arrow-left"></i>
+                        <span class="btn-text-inner">Kembali</span>
+                    </button>
                     <div class="widget-content widget-content-area br-8">
                         <br><br>
                         <div class="row">
@@ -72,8 +75,7 @@
                             </div>
                             <br>
                             <table style="width: 100%; margin: auto;" border="0">
-                                <form class="form-control" method="post"
-                                    action="<?= base_url(); ?>anggota/tabungan_tambah_cek#data">
+                                <form class="form-control" method="post" action="<?= base_url(); ?>anggota/tabungan_tambah_cek#data">
                                     <tbody>
                                         <tr>
                                             <td width="50%" align="right">
@@ -144,8 +146,7 @@
                                                 <h6>Jumlah Menabung&nbsp;&nbsp;</h6>
                                             </td>
                                             <td width="50%" align="left">
-                                                <input class="form-control form-control-sm" type="number"
-                                                    name="jumlah_menabung" required>
+                                                <input class="form-control form-control-sm" type="number" name="jumlah_menabung" required>
                                             </td>
                                         </tr>
                                         <tr>
@@ -153,8 +154,7 @@
                                                 <h6>Sistem Tabungan&nbsp;&nbsp;</h6>
                                             </td>
                                             <td width="50%" align="left">
-                                                <select class="form-control form-control-sm" name="sistem_menabung"
-                                                    required>
+                                                <select class="form-control form-control-sm" name="sistem_menabung" required>
                                                     <option value="">Pilih <b>Sistem Tabungan</b></option>
                                                     <option value="Potong Payroll Gaji">Potong Payroll Gaji</option>
                                                     <option value="Transfer Nominal Tertentu">Transfer Nominal Tertentu

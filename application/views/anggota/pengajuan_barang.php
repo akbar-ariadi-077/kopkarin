@@ -2,7 +2,6 @@
 <div id="content" class="main-content">
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
-            <?php include "stayontop.php"; ?>
 
             <!-- BREADCRUMB -->
 
@@ -11,6 +10,10 @@
             <br><br><br><br>
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    <button class="btn btn-dark" onclick="history.back()">
+                        <i data-feather="arrow-left"></i>
+                        <span class="btn-text-inner">Kembali</span>
+                    </button>
                     <div class="widget-content widget-content-area br-8">
                         <br><br>
                         <div class="row">
@@ -20,8 +23,7 @@
                         </div>
                         <br>
                         <table style="width: 100%; margin: auto;" border="0">
-                            <form class="form-control" method="post"
-                                action="<?= base_url(); ?>anggota/pengajuan_cek_barang#data">
+                            <form class="form-control" method="post" action="<?= base_url(); ?>anggota/pengajuan_cek_barang#data">
                                 <tbody>
                                     <tr>
                                         <td width="50%" align="right">
@@ -45,9 +47,7 @@
                                             <h6>Nama Barang&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
-                                            <input id="t-text" type="text" name="nama_barang"
-                                                placeholder="Masukkan nama barang..."
-                                                class="form-control form-control-sm" required>
+                                            <input id="t-text" type="text" name="nama_barang" placeholder="Masukkan nama barang..." class="form-control form-control-sm" required>
                                         </td>
                                     </tr>
                                     <tr>
@@ -55,8 +55,7 @@
                                             <h6>Jumlah Pinjaman&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
-                                            <select class="form-control form-control-sm" name="jumlah_pinjaman"
-                                                required>
+                                            <select class="form-control form-control-sm" name="jumlah_pinjaman" required>
                                                 <option value="">Pilih <b>Jumlah Pinjaman</b></option>
                                                 <?php
                                                 $max_pinjaman = 30000000;

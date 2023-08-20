@@ -20,7 +20,7 @@ class M_Anggota extends CI_model
 
     public function get_anggota_by_id_res($id)
     {
-        $query = $this->db->select('a.*, d.nama_dept, b.nama_bank')
+        $query = $this->db->select('a.*, d.nama_dept, b.nama_bank, d.id_dept')
             ->from('anggota a')
             ->join('department d', 'a.dept_anggota = d.id_dept')
             ->join('bank b', 'a.bank_anggota = b.id_bank')
@@ -32,7 +32,7 @@ class M_Anggota extends CI_model
 
     public function get_anggota_by_id_row($id)
     {
-        $query = $this->db->select('a.*, d.nama_dept, b.nama_bank')
+        $query = $this->db->select('a.*, d.nama_dept, b.nama_bank, d.id_dept')
             ->from('anggota a')
             ->join('department d', 'a.dept_anggota = d.id_dept')
             ->join('bank b', 'a.bank_anggota = b.id_bank')
@@ -162,5 +162,21 @@ class M_Anggota extends CI_model
                     WHERE jenis_simpanan = 'Simpanan Pokok' AND payroll_simpanan = $payroll;
                  ";
         return $this->db->query($query)->row_array();
+    }
+
+
+
+    public function update_pp_anggota($idu, $file_name)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date('Y-m-d H:i:s');
+
+        $data_docu = [
+            'photo_profile' => $file_name,
+            'photo_size' => $_FILES['foto_profil']['size'],
+            'cdt' => $now
+        ];
+        $this->db->where('id', $idu);
+        $this->db->update('user', $data_docu);
     }
 }

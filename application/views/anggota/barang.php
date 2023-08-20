@@ -2,7 +2,6 @@
 <div id="content" class="main-content">
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
-            <?php include "stayontop.php"; ?>
 
             <!-- BREADCRUMB -->
 
@@ -11,6 +10,10 @@
             <br><br><br><br>
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    <button class="btn btn-dark" onclick="history.back()">
+                        <i data-feather="arrow-left"></i>
+                        <span class="btn-text-inner">Kembali</span>
+                    </button>
                     <div class="widget-content widget-content-area br-8">
                         <br><br>
                         <div class="row">
@@ -57,8 +60,7 @@
                                         <h5>
                                             <span class="badge badge-light-dark">
                                                 <b>
-                                                    <?= (isset($a_pengajuan['jangka_waktu'])) ? number_format($a_pengajuan['jangka_waktu']) : '0'; ?>
-                                                    kali
+                                                    <?= (isset($a_pengajuan['jangka_waktu'])) ? number_format($a_pengajuan['jangka_waktu']) : '0'; ?> kali
                                                 </b>
                                             </span>
                                         </h5>

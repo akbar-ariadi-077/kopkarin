@@ -2,7 +2,6 @@
 <div id="content" class="main-content">
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
-            <?php include "stayontop.php"; ?>
 
             <!-- BREADCRUMB -->
 
@@ -11,6 +10,10 @@
             <br><br><br><br>
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                    <button class="btn btn-dark" onclick="history.back()">
+                        <i data-feather="arrow-left"></i>
+                        <span class="btn-text-inner">Kembali</span>
+                    </button>
                     <div class="widget-content widget-content-area br-8">
                         <br><br>
                         <div class="row">
@@ -58,8 +61,7 @@
                                             <h5>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= (isset($a_pengajuan['jangka_waktu'])) ? number_format($a_pengajuan['jangka_waktu']) : '0'; ?>
-                                                        kali
+                                                        <?= (isset($a_pengajuan['jangka_waktu'])) ? number_format($a_pengajuan['jangka_waktu']) : '0'; ?> kali
                                                     </b>
                                                 </span>
                                             </h5>
@@ -73,8 +75,7 @@
                                             <h5>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= (isset($a_pengajuan['bunga_pinjaman_persen'])) ? number_format($a_pengajuan['bunga_pinjaman_persen'], 1) : '0'; ?>
-                                                        %
+                                                        <?= (isset($a_pengajuan['bunga_pinjaman_persen'])) ? number_format($a_pengajuan['bunga_pinjaman_persen'], 1) : '0'; ?> %
                                                     </b>
                                                 </span>
                                             </h5>
@@ -99,26 +100,19 @@
                                     </tr>
                                     <tr>
                                         <td width="100%" colspan="2" align="center">
-                                            <button class="btn btn-primary mb-2 me-4 btn-lg" type="button"
-                                                data-bs-toggle="modal" data-bs-target="#modalPelunasan">P E L U N A S A
+                                            <button class="btn btn-primary mb-2 me-4 btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#modalPelunasan">P E L U N A S A
                                                 N</button>
 
-                                            <div class="modal fade" id="modalPelunasan" tabindex="-1" role="dialog"
-                                                aria-labelledby="modalPelunasanTitle" aria-hidden="true">
+                                            <div class="modal fade" id="modalPelunasan" tabindex="-1" role="dialog" aria-labelledby="modalPelunasanTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="modalPelunasanTitle">Pelunasa
-                                                                Pinjaman -
+                                                            <h5 class="modal-title" id="modalPelunasanTitle">Pelunasan Pinjaman -
                                                                 <?= $us['nama_anggota']; ?>
                                                             </h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                                    stroke="currentColor" stroke-width="2"
-                                                                    stroke-linecap="round" stroke-linejoin="round"
-                                                                    class="feather feather-x">
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                                                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                                                 </svg>
@@ -165,8 +159,7 @@
                                                                             <h5>
                                                                                 <span class="badge badge-light-dark">
                                                                                     <b>
-                                                                                        <?= (isset($sisa_angsuran_lama)) ? number_format($sisa_angsuran_lama) : '0'; ?>x
-                                                                                        Angsuran
+                                                                                        <?= (isset($sisa_angsuran_lama)) ? number_format($sisa_angsuran_lama) : '0'; ?>x Angsuran
                                                                                     </b>
                                                                                 </span>
                                                                             </h5>
@@ -211,11 +204,8 @@
                                                             </table>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button class="btn btn btn-light-dark"
-                                                                data-bs-dismiss="modal"><i class="flaticon-cancel-12"></i>
-                                                                Close</button>
-                                                            <button type="button" class="btn btn-primary">L U N A S
-                                                                I</button>
+                                                            <button class="btn btn btn-light-dark" data-bs-dismiss="modal"><i class="flaticon-cancel-12"></i>Close</button>
+                                                            <button type="button" class="btn btn-primary">L U N A S I</button>
                                                         </div>
                                                     </div>
                                                 </div>
