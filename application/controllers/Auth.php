@@ -31,7 +31,8 @@ class Auth extends CI_Controller
                         'role' => $user['role'],
                         'iduser' => $user['id'],
                         'idanggota' => $user['id_anggota'],
-                        'idpengurus' => $user['id_pengurus']
+                        'idpengurus' => $user['id_pengurus'],
+                        'idcustomer' => $user['id_aneka_usaha']
                     ];
                     $this->session->set_userdata($data);
 
@@ -41,6 +42,8 @@ class Auth extends CI_Controller
                         redirect('pengurus');
                     } else if ($user['role'] == 'Anggota') {
                         redirect('anggota');
+                    } else if ($user['role'] == 'Aneka Usaha') {
+                        redirect('usaha');
                     } else {
                         $this->index();
                     }
