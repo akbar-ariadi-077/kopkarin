@@ -40,17 +40,15 @@ class M_Usaha extends CI_model
 
 
 
-    public function get_anggota_by_id_res($id)
+    public function get_usaha_transaksi_by_customer($id)
     {
-        $query = $this->db->select('a.*, d.nama_dept, b.nama_bank, d.id_dept')
-            ->from('anggota a')
-            ->join('department d', 'a.dept_anggota = d.id_dept')
-            ->join('bank b', 'a.bank_anggota = b.id_bank')
-            ->join('user u', 'a.id_anggota = u.id_anggota')
-            ->where('u.id', $id)
-            ->get();
-        return $query->result_array();
+        $query = ("SELECT tanggal_transaksi, quantity_transaksi, harga_satuan, jumlah, keterangan_transaksi, jenis_transaksi FROM usaha_transaksi WHERE id_usaha_customer = $id AND status_transaksi = 1");
+        return $this->db->query($query)->result_array();
     }
+
+
+
+
 
     public function get_anggota_by_id_row($id)
     {

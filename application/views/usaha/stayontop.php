@@ -18,7 +18,7 @@
                         </a>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                        <a href="<?= base_url(); ?>usaha/cek_transaksi">
+                        <a href="<?= base_url(); ?>usaha/cek_transaksi/<?= $this->session->userdata('iduser'); ?>">
                             <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/cek_transaksi_3r.png" alt="Cek Transaksi" width="90" height="140">
                         </a>
                     </div>
