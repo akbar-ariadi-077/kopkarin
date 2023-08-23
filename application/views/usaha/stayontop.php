@@ -4,7 +4,7 @@
             <div class="widget-content widget-content-area">
                 <div class="text-center user-info">
                     <a href="<?= base_url(); ?>usaha/profile/<?= $this->session->userdata('iduser'); ?>#data">
-                        <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/profile-38.png" alt="avatar" width="90" height="90">
+                        <img src="<?= base_url(); ?>assets/src/assets/img/pp/usaha/<?= $pass_lama_db['photo_profile']; ?>" alt="avatar" width="90" height="90">
                         <p class="">
                             <?= $customer_nam; ?>
                         </p>

@@ -28,6 +28,7 @@ class Usaha extends CI_Controller
         $data['customer_row'] = $this->M_Usaha->get_customer_by_id_row($this->session->userdata('idcustomer'));
         $data['customer_res'] = $this->M_Usaha->get_customer_by_id_res($this->session->userdata('idcustomer'));
         $data['customer_nam'] = $data['customer_row']['nama_customer'];
+        $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
 
         $this->load->view('usaha/header');
         $this->load->view('include/loader');
@@ -35,6 +36,11 @@ class Usaha extends CI_Controller
         $this->load->view('usaha/sidebar');
         $this->load->view('usaha/dashboard', $data);
         $this->load->view('usaha/footer');
+    }
+
+    public function cek_transaksi()
+    {
+        
     }
 
 
@@ -56,6 +62,8 @@ class Usaha extends CI_Controller
 
     public function pass_c($uid)
     {
+        $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($uid);
+
         $this->form_validation->set_rules('password_lama', 'Password saat ini', 'required');
         $this->form_validation->set_rules('password_baru1', 'Password baru', 'required');
         $this->form_validation->set_rules('password_baru2', 'Password baru', 'required');
