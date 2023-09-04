@@ -20,12 +20,9 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">Cek Saldo Anggota -
-                                            <?= $us['nama_anggota']; ?>
-                                        </h5>
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Cek Saldo Anggota - <?= $us['nama_anggota']; ?></h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                                             </svg>
@@ -102,9 +99,10 @@
                                                         <h5>
                                                             <span class="badge badge-light-dark">
                                                                 <b>
-                                                                    <?php foreach ($a_sisa_bara as $y): ?>
+                                                                    <?= (isset($a_sisa_bara)) ? number_format($a_sisa_bara) : '0'; ?>
+                                                                    <?php /* foreach ($a_sisa_bara as $y): ?>
                                                                         <?= (isset($y['sisa_pinjaman'])) ? number_format($y['sisa_pinjaman']) : '0'; ?>
-                                                                    <?php endforeach; ?>
+                                                                    <?php endforeach; */ ?>
                                                                 </b>
                                                             </span>
                                                         </h5>

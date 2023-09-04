@@ -7,13 +7,14 @@
 
             <!-- /BREADCRUMB -->
             <span id="data"></span>
-            <br><br><br><br>
+            <br>
+            <button class="btn btn-dark" onclick="history.back()">
+                <i data-feather="arrow-left"></i>
+                <span class="btn-text-inner">Kembali</span>
+            </button>
+            <br>
             <div class="row layout-top-spacing">
-                <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
-                    <button class="btn btn-dark" onclick="history.back()">
-                        <i data-feather="arrow-left"></i>
-                        <span class="btn-text-inner">Kembali</span>
-                    </button>
+                <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
                     <div class="widget-content widget-content-area br-8">
                         <br><br>
                         <div class="row">
@@ -21,7 +22,9 @@
                                 <h3 style="text-align: center; font-weight: bold;"><u>DATA PINJAMAN BARANG</u></h3>
                             </div>
                         </div>
+                    <?php /*
                         <br>
+                    
                         <table style="width: 100%; margin: auto;" border="0">
                             <tbody>
                                 <tr>
@@ -112,10 +115,26 @@
                                      </h5>
                                  </td>
                                 </tr>
-                                */
+                                *
                                 ?>
                             </tbody>
                         </table>
+                        */ ?>
+                        <br /><br />
+                        
+                        <?php foreach ($a_sisabara as $z) : ?>
+                            <div class="row" style="margin: 5px;">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="card bg-light-warning">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><?= $z['nama_barang'] . '(' . $z['txt_pr_id_bulan'] . ' ' . $z['text_tahun'] . ')'; ?></h5>
+                                            <p class="mb-0">This is some text within a card body.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                        <br>
                         <br />
                         <table id="zero-config" class="table dt-table-hover" style="width:100%">
                             <thead>

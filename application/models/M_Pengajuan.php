@@ -84,6 +84,30 @@ class M_Pengajuan extends CI_model
         return $query->row_array();
     }
 
+    public function get_total_ajuan_barang_by_nik($payroll)
+    {
+        $statu = array('Belum Lunas','Disetujui');
+        $query = $this->db->select('SUM(jumlah_pinjaman) AS jumlah_pinjaman')
+            ->from('pengajuan_barang')
+            ->where('payroll_anggota', $payroll)
+            ->where_in('status_pinjaman', $statu)
+            ->get();
+        return $query->row_array();
+    }
+    
+    public function get_pengajuan_barang_by_nik_outst($payroll)
+    {
+        $statu = array('Belum Lunas', 'Disetujui');
+        $query = $this->db->select('p.jumlah_pinjaman, p.bunga_pinjaman, p.bunga_pinjaman_persen, b.txt_pr_id_bulan, t.text_tahun, p.jangka_waktu, p.status_pinjaman, p.alasan_pinjaman, p.angsuran_pokok, p.angsuran_ke, p.nama_barang')
+            ->from('pengajuan_barang p')
+            ->join('bulan b', 'p.bulan_pengajuan = b.id_bulan')
+            ->join('tahun t', 'p.tahun_pengajuan = t.id_tahun')
+            ->where('p.payroll_anggota', $payroll)
+            ->where_in('p.status_pinjaman', $statu)
+            ->get();
+        return $query->result_array();
+    }
+
     public function ins_new_pengajuan_barang($payroll)
     {
         date_default_timezone_set('Asia/Jakarta');

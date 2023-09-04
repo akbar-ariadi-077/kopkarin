@@ -52,12 +52,35 @@ class M_Pinjaman extends CI_model
 
     public function get_sisa_pinjaman_barang_by_nik($payroll)
     {
+        $statu = array('Belum Lunas', 'Disetujui');
         $query = $this->db->select('p.jumlah_pinjaman - SUM(a.angsuran_pokok) AS sisa_pinjaman')
             ->from('pinjaman_barang a')
             ->join('pengajuan_barang p', 'a.id_pengajuan = p.id')
             ->where('a.payroll_anggota', $payroll)
-            ->where('a.status_pinjaman', 'Belum Lunas')
+            ->where_in('p.status_pinjaman', $statu)
             ->get();
         return $query->result_array();
+    }
+
+    public function get_sisa_pinjaman_barang_by_nik_per_pengajuan($payroll)
+    {
+        $statu = array('Belum Lunas', 'Disetujui');
+        $query = $this->db->select('p.jumlah_pinjaman - SUM(a.angsuran_pokok) AS sisa_pinjaman')
+            ->from('pinjaman_barang a')
+            ->join('pengajuan_barang p', 'a.id_pengajuan = p.id')
+            ->where('a.payroll_anggota', $payroll)
+            ->where_in('p.status_pinjaman', $statu)
+            ->get();
+        return $query->result_array();
+    }
+
+    public function get_total_pinjaman_barang_by_nik($payroll)
+    {
+        $query = $this->db->select('SUM(angsuran_pokok) AS angsuran_pokok')
+            ->from('pinjaman_barang')
+            ->where('payroll_anggota', $payroll)
+            ->where('status_pinjaman', 'Belum Lunas')
+            ->get();
+        return $query->row_array();
     }
 }
