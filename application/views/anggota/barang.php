@@ -127,8 +127,14 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="card bg-light-warning">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?= $z['nama_barang'] . '(' . $z['txt_pr_id_bulan'] . ' ' . $z['text_tahun'] . ')'; ?></h5>
-                                            <p class="mb-0">This is some text within a card body.</p>
+                                            <h5 class="card-title"><?= $z['nama_barang'] . ' (' . $z['txt_pr_id_bulan'] . ' ' . $z['text_tahun'] . ')'; ?></h5>
+                                            <p class="mb-0" style="text-align: right;">
+                                                Angsuran ke <?= $z['angsuran_ke']; ?> dari <?= $z['jangka_waktu']; ?><br>
+                                                Total Pinjaman = <?= number_format($z['jumlah_pinjaman']); ?><br>
+                                                Angsuran Pokok per Bulan = <?= number_format($z['angsuran_pokok']); ?><br>
+                                                Bunga per Bulan = <?= number_format($z['bunga_pinjaman']); ?><br>
+                                                Total Bayar per Bulan = <?= number_format($z['angsuran_pokok'] + $z['bunga_pinjaman']); ?>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

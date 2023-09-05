@@ -24,6 +24,8 @@ class Anggota extends CI_Controller
     // main function
     public function index()
     {
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+
         $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
         $data['a_simwa']     = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
@@ -50,6 +52,8 @@ class Anggota extends CI_Controller
     // get data terbaru simpanan wajib dan simpanan pokok
     public function simwapok()
     {
+        $data['user_data'] = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+
         $data['all_dept']  = $this->M_Master->get_all_dept_active();
         $data['all_bank']  = $this->M_Master->get_all_bank_active();
         $data['all_bulan'] = $this->M_Master->get_all_bulan();
@@ -71,6 +75,8 @@ class Anggota extends CI_Controller
     // kumpulan function data pinjaman dan pengajuan non barang
     public function pinjaman()
     {
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+
         $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
         
@@ -112,26 +118,19 @@ class Anggota extends CI_Controller
 
     public function pengajuan($param = NULL)
     {
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
+
+        $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
+
+        $this->load->view('anggota/header');
+        $this->load->view('include/loader');
+        $this->load->view('anggota/navbar', $data);
+        $this->load->view('anggota/sidebar');
+
         if ($param == 'barang') {
-            $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
-            $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-            $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-            $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-            $data['a_pinjaman'] = $this->M_Pinjaman->get_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['a_sisa_pinj'] = $this->M_Pinjaman->get_sisa_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['m_pinjaman'] = $this->M_Master->get_all_jumlah_pinjaman_active();
-            $data['m_jangka'] = $this->M_Master->get_all_jangka_waktu_active();
-            $data['a_totajubar'] = $this->M_Pengajuan->get_total_ajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['a_totpinjba'] = $this->M_Pinjaman->get_total_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['a_sisa_bara'] = $data['a_totajubar']['jumlah_pinjaman'] - $data['a_totpinjba']['angsuran_pokok'];
-
-            $this->load->view('anggota/header');
-            $this->load->view('include/loader');
-            $this->load->view('anggota/navbar', $data);
-            $this->load->view('anggota/sidebar');
-
             if (isset($data['a_pengajuan'])) {
                 if ($data['a_pengajuan']['status_pinjaman'] == 'Belum Lunas') {
                     $data['sisa_pinjaman'] = $data['a_pengajuan']['jumlah_pinjaman'] - ($data['a_pengajuan']['angsuran_pokok'] * $data['a_pengajuan']['angsuran_ke']);
@@ -146,20 +145,8 @@ class Anggota extends CI_Controller
 
             $this->load->view('anggota/footer');
         } else {
-            $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
-            $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-
-            $data['a_pinjaman']  = $this->M_Pinjaman->get_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['a_sisa_pinj'] = $this->M_Pinjaman->get_sisa_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-            $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
-            
             $data['m_pinjaman']  = $this->M_Master->get_all_jumlah_pinjaman_active();
             $data['m_jangka']    = $this->M_Master->get_all_jangka_waktu_active();
-
-            $this->load->view('anggota/header');
-            $this->load->view('include/loader');
-            $this->load->view('anggota/navbar', $data);
-            $this->load->view('anggota/sidebar');
 
             if (isset($data['a_pengajuan'])) {
                 if ($data['a_pengajuan']['status_pinjaman'] == 'Belum Lunas') {
@@ -179,6 +166,8 @@ class Anggota extends CI_Controller
 
     public function pengajuan_cek()
     {
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
         $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
 
@@ -248,6 +237,8 @@ class Anggota extends CI_Controller
 
     public function pengajuan_ajukan()
     {
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
         $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
 
@@ -264,6 +255,8 @@ class Anggota extends CI_Controller
 
     public function pengajuan_topup()
     {
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
         $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
 
@@ -294,6 +287,8 @@ class Anggota extends CI_Controller
     // kumpulan function data pinjaman dan pengajuan barang
     public function barang()
     {
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
         $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
         
@@ -316,13 +311,12 @@ class Anggota extends CI_Controller
 
     public function pengajuan_cek_barang()
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_pinjaman'] = $this->M_Pinjaman->get_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
+
+        $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);        
 
         $sisa_angsuran = 0;
         if (isset($data['a_pengajuan'])) {
@@ -338,15 +332,16 @@ class Anggota extends CI_Controller
             $sisa_angsuran = 0;
         }
 
-        $data['input_nama_barang'] = $this->input->post('nama_barang', true);
-        $data['input_jumlah_pinjaman'] = $this->input->post('jumlah_pinjaman', true);
-        $data['input_jangka_waktu'] = $this->input->post('jangka_waktu', true);
-        $data['bunga'] = 0.75;
-        $data['bunga_per_tahun'] = $this->input->post('jumlah_pinjaman', true) * (0.75 / 100);
+        $data['input_nama_barang']        = $this->input->post('nama_barang', true);
+        $data['input_jumlah_pinjaman']    = $this->input->post('jumlah_pinjaman', true);
+        $data['input_jangka_waktu']       = $this->input->post('jangka_waktu', true);
+        $data['bunga']                    = 0.75;
+        $data['bunga_per_tahun']          = $this->input->post('jumlah_pinjaman', true) * ($data['bunga'] / 100);
         $data['angsuran_pokok_per_bulan'] = $this->input->post('jumlah_pinjaman', true) / $this->input->post('jangka_waktu', true);
         $data['angsuran_bunga_per_bulan'] = $data['bunga_per_tahun'] / $this->input->post('jangka_waktu', true);
-        $data['bayar_per_bulan'] = $data['angsuran_pokok_per_bulan'] + $data['angsuran_bunga_per_bulan'];
-        $data['sisa_pinjaman_lama'] = $data['sisa_pinjaman'];
+        $data['bayar_per_bulan']          = $data['angsuran_pokok_per_bulan'] + $data['angsuran_bunga_per_bulan'];
+        $data['sisa_pinjaman_lama']       = $data['sisa_pinjaman'];
+
         if ($sisa_angsuran > 3) {
             $data['sisa_bunga_lama'] = ($data['a_pengajuan']['bunga_pinjaman'] / $data['a_pengajuan']['jangka_waktu']) * 2;
         } else if (($sisa_angsuran > 0) && ($sisa_angsuran <= 3)) {
@@ -357,12 +352,12 @@ class Anggota extends CI_Controller
         $data['total_didapat'] = $data['input_jumlah_pinjaman'] + $data['sisa_pinjaman_lama'] + $data['sisa_bunga_lama'] + $data['bunga_per_tahun'];
 
         date_default_timezone_set('Asia/Jakarta');
-        $today_year = date('Y');
-        $today_month = date('m');
-        $data['tahun'] = $this->M_Tahun->get_tahun_by_int($today_year);
-        $data['bulan'] = $this->M_Bulan->get_bulan_by_int($today_month);
-        $data['tahun_pengajuan'] = $data['tahun']['id_tahun'];
-        $data['bulan_pengajuan'] = $data['bulan']['id_bulan'];
+        $today_year                 = date('Y');
+        $today_month                = date('m');
+        $data['tahun']              = $this->M_Tahun->get_tahun_by_int($today_year);
+        $data['bulan']              = $this->M_Bulan->get_bulan_by_int($today_month);
+        $data['tahun_pengajuan']    = $data['tahun']['id_tahun'];
+        $data['bulan_pengajuan']    = $data['bulan']['id_bulan'];
 
         $this->load->view('anggota/header');
         $this->load->view('include/loader');
@@ -374,32 +369,24 @@ class Anggota extends CI_Controller
 
     public function pengajuan_ajukan_barang()
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_pinjaman'] = $this->M_Pinjaman->get_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
 
-        // if (isset($data['a_pengajuan'])) {
-        //     $this->M_Pengajuan->upd_new_pengajuan_barang($data['m_iduser_ro']['id_anggota']);
-        // } else {
         $this->M_Pengajuan->ins_new_pengajuan_barang($data['m_iduser_ro']['id_anggota']);
-        // }
 
         $this->pengajuan('barang');
     }
 
     public function pengajuan_barang_baru()
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_pinjaman'] = $this->M_Pinjaman->get_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
+
         $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
 
         $this->load->view('anggota/header');
         $this->load->view('include/loader');
@@ -422,8 +409,9 @@ class Anggota extends CI_Controller
     public function m_anggota()
     {
         $data['m_anggota'] = $this->M_Anggota->get_all_anggota_active();
-        $data['all_dept'] = $this->M_Master->get_all_dept_active();
-        $data['all_bank'] = $this->M_Master->get_all_bank_active();
+
+        $data['all_dept']  = $this->M_Master->get_all_dept_active();
+        $data['all_bank']  = $this->M_Master->get_all_bank_active();
 
         $this->load->view('include/header');
         $this->load->view('include/loader');
@@ -474,18 +462,14 @@ class Anggota extends CI_Controller
     // kumpulan function data tabungan
     public function tabungan()
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_tabungan'] = $this->M_Tabungan->get_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_pinj'] = $this->M_Pinjaman->get_sisa_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totajubar'] = $this->M_Pengajuan->get_total_ajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totpinjba'] = $this->M_Pinjaman->get_total_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_bara'] = $data['a_totajubar']['jumlah_pinjaman'] - $data['a_totpinjba']['angsuran_pokok'];
 
+        $data['a_tabungan']  = $this->M_Tabungan->get_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['s_tabungan']  = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
+        
         $this->load->view('anggota/header');
         $this->load->view('include/loader');
         $this->load->view('anggota/navbar', $data);
@@ -494,16 +478,38 @@ class Anggota extends CI_Controller
         $this->load->view('anggota/footer');
     }
 
+    public function tabungan_kelola()
+    {
+        $data['user_data']      = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']       = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['m_iduser_ro']    = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
+
+        $data['a_tabungan']     = $this->M_Tabungan->get_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['s_tabungan']     = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['aju_tabungan']   = $this->M_Tabungan->get_tambah_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+
+        $this->load->view('anggota/header');
+        $this->load->view('include/loader');
+        $this->load->view('anggota/navbar', $data);
+        $this->load->view('anggota/sidebar');
+        $this->load->view('anggota/tabungan_kelola', $data);
+        $this->load->view('anggota/footer');
+    }
+
     public function tabungan_tambah()
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
+
         $data['a_tabungan'] = $this->M_Tabungan->get_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
         $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
         $data['aju_tabungan'] = $this->M_Tabungan->get_tambah_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        
         $data['a_pengajuan'] = $this->M_Pengajuan->get_pengajuan_by_nik($data['m_iduser_ro']['id_anggota']);
+        
         $data['m_tahun'] = $this->M_Tahun->get_all_tahun();
         $data['m_bulan'] = $this->M_Bulan->get_all_bulan();
 
@@ -570,19 +576,14 @@ class Anggota extends CI_Controller
     // profile management
     public function profile($uid)
     {
-        $data['all_dept'] = $this->M_Master->get_all_dept_active();
-        $data['all_bank'] = $this->M_Master->get_all_bank_active();
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['all_dept']    = $this->M_Master->get_all_dept_active();
+        $data['all_bank']    = $this->M_Master->get_all_bank_active();
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_pinj'] = $this->M_Pinjaman->get_sisa_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totajubar'] = $this->M_Pengajuan->get_total_ajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totpinjba'] = $this->M_Pinjaman->get_total_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_bara'] = $data['a_totajubar']['jumlah_pinjaman'] - $data['a_totpinjba']['angsuran_pokok'];
-        $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($uid);
-
+        
         $this->load->view('anggota/header');
         $this->load->view('include/loader');
         $this->load->view('anggota/navbar', $data);
@@ -593,23 +594,17 @@ class Anggota extends CI_Controller
 
     public function pass_c($uid)
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_pinj'] = $this->M_Pinjaman->get_sisa_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totajubar'] = $this->M_Pengajuan->get_total_ajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totpinjba'] = $this->M_Pinjaman->get_total_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_bara'] = $data['a_totajubar']['jumlah_pinjaman'] - $data['a_totpinjba']['angsuran_pokok'];
-        $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($uid);
-
+        
         $this->form_validation->set_rules('password_lama', 'Password saat ini', 'required');
         $this->form_validation->set_rules('password_baru1', 'Password baru', 'required');
         $this->form_validation->set_rules('password_baru2', 'Password baru', 'required');
 
         if (!$this->form_validation->run() == false) {
-            if ($data['pass_lama_db']['passw'] !== $this->input->post('password_lama', true)) {
+            if ($data['user_data']['passw'] !== $this->input->post('password_lama', true)) {
                 $this->session->set_flashdata('password-lama-salah', 'Password saat ini <b>TIDAK SESUAI</b>!<br>Silahkan memasukkan password saat ini dengan benar!<br>' . validation_errors());
             } else {
                 if ($this->input->post('password_baru1', true) !== $this->input->post('password_baru2', true)) {
@@ -626,17 +621,11 @@ class Anggota extends CI_Controller
 
     public function pp_c($uid)
     {
-        $data['m_iduser'] = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']    = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
         $data['m_iduser_ro'] = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
-        $data['a_simwa'] = $this->M_Anggota->get_simwa_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['a_simpok'] = $this->M_Anggota->get_simpok_by_anggota($data['m_iduser_ro']['id_anggota']);
-        $data['s_tabungan'] = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_pinj'] = $this->M_Pinjaman->get_sisa_pinjaman_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totajubar'] = $this->M_Pengajuan->get_total_ajuan_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_totpinjba'] = $this->M_Pinjaman->get_total_pinjaman_barang_by_nik($data['m_iduser_ro']['id_anggota']);
-        $data['a_sisa_bara'] = $data['a_totajubar']['jumlah_pinjaman'] - $data['a_totpinjba']['angsuran_pokok'];
-        $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($uid);
-
+        
         // $file_name = pathinfo($_FILES['foto_profil']['name'], PATHINFO_FILENAME) . '.' . pathinfo($_FILES['foto_profil']['name'], PATHINFO_EXTENSION);
         date_default_timezone_set('Asia/Jakarta');
         $now = date('Y-m-d_H:i:s');

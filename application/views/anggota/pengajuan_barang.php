@@ -90,6 +90,11 @@
                                     </tr>
                                     <tr>
                                         <td width="100%" align="center" colspan="2">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="100%" align="center" colspan="2">
                                             <button class="btn btn-light-info mb-2 me-4"><b>Cek</b></button>
                                         </td>
                                     </tr>

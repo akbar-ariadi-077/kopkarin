@@ -62,9 +62,9 @@
                         </a>
                     </div>
                 </div>
-
             </li>
         </ul>
+        
     </header>
 </div>
 <!--  END NAVBAR  -->

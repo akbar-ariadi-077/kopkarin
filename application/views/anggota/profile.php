@@ -3,6 +3,12 @@
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
             <span id="data"></span>
+            <br>
+            <button class="btn btn-dark" onclick="history.back()">
+                <i data-feather="arrow-left"></i>
+                <span class="btn-text-inner">Kembali</span>
+            </button>
+            <br>
             <?php foreach ($m_iduser as $us): ?>
                 <div class="account-settings-container layout-top-spacing">
                     <div class="account-content">
@@ -10,17 +16,12 @@
                             <div class="tab-pane fade show active" id="animated-underline-home" role="tabpanel" aria-labelledby="animated-underline-home-tab">
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
-                                        <button class="btn btn-dark" onclick="history.back()">
-                                            <i data-feather="arrow-left"></i>
-                                            <span class="btn-text-inner">Kembali</span>
-                                        </button>
                                         <div class="user-profile">
                                             <div class="widget-content widget-content-area">
                                                 <div class="text-center user-info">
                                                     <div class="profile-image mt-4 pe-md-4">
                                                         <div class="img-uploader-content">
-                                                            <img src="<?= base_url() . 'assets/src/assets/img/pp/anggota/' . $pass_lama_db['photo_profile']; ?>" width="90" height="90"
-                                                                alt="<?= $this->session->userdata('username'); ?>" />
+                                                            <img src="<?= base_url() . 'assets/src/assets/img/pp/anggota/' . $user_data['photo_profile']; ?>" width="90" height="90" alt="<?= $this->session->userdata('username'); ?>" />
                                                         </div>
                                                     </div>
                                                     <p class="">
@@ -74,8 +75,7 @@
                                                                                 <span class="input-group-text">
                                                                                     <i data-feather="user"></i>
                                                                                 </span>
-                                                                                <input class="form-control file-upload-input" type="file" id="formFile" name="foto_profil" accept="image/png, image/jpeg, image/gif"
-                                                                                    required>
+                                                                                <input class="form-control file-upload-input" type="file" id="formFile" name="foto_profil" accept="image/png, image/jpeg, image/gif" required>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -118,8 +118,7 @@
                                                                                 <span class="input-group-text">
                                                                                     <i data-feather="edit"></i>
                                                                                 </span>
-                                                                                <input type="password" class="form-control" placeholder="Masukkan lagi Password baru" aria-label="password" name="password_baru2"
-                                                                                    required>
+                                                                                <input type="password" class="form-control" placeholder="Masukkan lagi Password baru" aria-label="password" name="password_baru2" required>
                                                                             </div>
                                                                         </div>
                                                                     </div>

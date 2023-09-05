@@ -28,6 +28,7 @@ class Usaha extends CI_Controller
         $data['customer_row'] = $this->M_Usaha->get_customer_by_id_row($this->session->userdata('idcustomer'));
         $data['customer_res'] = $this->M_Usaha->get_customer_by_id_res($this->session->userdata('idcustomer'));
         $data['customer_nam'] = $data['customer_row']['nama_customer'];
+
         $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
 
         $this->load->view('usaha/header');
@@ -43,8 +44,10 @@ class Usaha extends CI_Controller
         $data['customer_row'] = $this->M_Usaha->get_customer_by_id_row($this->session->userdata('idcustomer'));
         $data['customer_res'] = $this->M_Usaha->get_customer_by_id_res($this->session->userdata('idcustomer'));
         $data['customer_nam'] = $data['customer_row']['nama_customer'];
+        
         $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($uid);
-        $data['transaksi'] = $this->M_Usaha->get_usaha_transaksi_by_customer($this->session->userdata('idcustomer'));
+        
+        $data['transaksi']    = $this->M_Usaha->get_usaha_transaksi_by_customer($this->session->userdata('idcustomer'));
 
         $this->load->view('usaha/header');
         $this->load->view('include/loader');
@@ -61,6 +64,7 @@ class Usaha extends CI_Controller
         $data['customer_row'] = $this->M_Usaha->get_customer_by_id_row($this->session->userdata('idcustomer'));
         $data['customer_res'] = $this->M_Usaha->get_customer_by_id_res($this->session->userdata('idcustomer'));
         $data['customer_nam'] = $data['customer_row']['nama_customer'];
+        
         $data['pass_lama_db'] = $this->M_Auth->get_user_by_id($uid);
 
         $this->load->view('usaha/header');

@@ -3,16 +3,17 @@
     <div class="layout-px-spacing">
         <div class="middle-content container-xxl p-0">
             <span id="data"></span>
+            <br>
+            <button class="btn btn-dark" onclick="history.back()">
+                <i data-feather="arrow-left"></i>
+                <span class="btn-text-inner">Kembali</span>
+            </button>
             <div class="account-settings-container layout-top-spacing">
                 <div class="account-content">
                     <div class="tab-content" id="animateLineContent-4">
                         <div class="tab-pane fade show active" id="animated-underline-home" role="tabpanel" aria-labelledby="animated-underline-home-tab">
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
-                                    <button class="btn btn-dark" onclick="history.back()">
-                                        <i data-feather="arrow-left"></i>
-                                        <span class="btn-text-inner">Kembali</span>
-                                    </button>
                                     <div class="user-profile">
                                         <div class="widget-content widget-content-area">
                                             <div class="text-center user-info">

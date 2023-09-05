@@ -36,7 +36,7 @@
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="avatar-container">
                         <div class="avatar avatar-sm avatar-indicators avatar-online">
-                            <img alt="avatar" src="<?= base_url(); ?>assets/src/assets/img/kopkarin/profile-37.PNG" class="rounded-circle">
+                            <img src="<?= base_url(); ?>assets/src/assets/img/pp/anggota/<?= $user_data['photo_profile']; ?>" class="rounded-circle"" alt="avatar">
                         </div>
                     </div>
                 </a>
@@ -44,7 +44,7 @@
                 <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                     <div class="user-profile-section">
                         <div class="media mx-auto">
-                            <img src="<?= base_url(); ?>assets/src/assets/img/kopkarin/profile-37.PNG" class="img-fluid me-2" alt="avatar">
+                            <img src="<?= base_url(); ?>assets/src/assets/img/pp/anggota/<?= $user_data['photo_profile']; ?>" class="rounded-circle"" alt="avatar">
                             <div class="media-body">
                                 <?php foreach ($m_iduser as $us): ?>
                                     <h5>

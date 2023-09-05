@@ -7,14 +7,14 @@
 
             <!-- /BREADCRUMB -->
             <span id="data"></span>
-            <br><br><br><br>
+            <br>
+            <button class="btn btn-dark" onclick="history.back()">
+                <i data-feather="arrow-left"></i>
+                <span class="btn-text-inner">Kembali</span>
+            </button>
+            <br>
             <div class="row layout-top-spacing">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
-                    <button class="btn btn-dark" onclick="history.back()">
-                        <i data-feather="arrow-left"></i>
-                        <span class="btn-text-inner">Kembali</span>
-                    </button>
-                    <br>
                     <div class="widget-content widget-content-area br-8">
                         <br><br>
                         <div class="row">
@@ -41,7 +41,7 @@
                                 <!--    <th>Jumlah</th>-->
                                 <!--</tr>-->
                                 <tr>
-                                    <th  style="text-align: center;">No.</th>
+                                    <th style="text-align: center;">No.</th>
                                     <th colspan="2" style="text-align: center;">DP</th>
                                     <th colspan="4" style="text-align: center;">Sales</th>
                                     <th style="text-align: center;">Kurang/Lebih</th>
@@ -53,33 +53,33 @@
                                 <?php foreach ($transaksi as $y): ?>
                                     <?= ($y['jenis_transaksi'] == 'DP Masuk') ? $total += $y['jumlah'] : $total -= $y['jumlah']; ?>
                                     <tr>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <?= $z += 1; ?>
                                         </td>
-                                        <td>
+                                        <td style="text-align: right;">
                                             <?= ($y['jenis_transaksi'] == 'DP Masuk') ? $y['tanggal_transaksi'] : '&nbsp;'; ?>
                                         </td>
-                                        <td align="right">
+                                        <td style="text-align: right;">
                                             <?= ($y['jenis_transaksi'] == 'DP Masuk') ? number_format($y['jumlah']) : '&nbsp;'; ?>
                                         </td>
-                                        <td>
+                                        <td style="text-align: right;">
                                             <?= ($y['jenis_transaksi'] == 'Penjualan') ? $y['tanggal_transaksi'] : '&nbsp;'; ?>
                                         </td>
-                                        <td align="right">
+                                        <td style="text-align: right;">
                                         <?= ($y['jenis_transaksi'] == 'Penjualan') ? number_format($y['quantity_transaksi'],2) : '&nbsp;'; ?>
                                         </td>
-                                        <td align="right">
+                                        <td style="text-align: right;">
                                         <?= ($y['jenis_transaksi'] == 'Penjualan') ? number_format($y['harga_satuan'],2) : '&nbsp;'; ?>
                                         </td>
-                                        <td align="right">
+                                        <td style="text-align: right;">
                                         <?= ($y['jenis_transaksi'] == 'Penjualan') ? number_format($y['jumlah']) : '&nbsp;'; ?>
                                         </td>
-                                        <td align="right">
+                                        <td style="text-align: right;">
                                             <?php $total_all += $total; $totall = $total_all; ?>
                                             <!--<?= number_format($total_all); ?>-->
                                             <?= ($totall < 0) ? '('.number_format(abs($totall)).')' : number_format($totall); ?>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <?= $y['keterangan_transaksi']; ?>
                                         </td>
                                     </tr>
