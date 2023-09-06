@@ -46,7 +46,7 @@ class M_Tabungan extends CI_model
 
     public function get_tambah_tabungan_by_nik($payroll)
     {
-        return $this->db->get_where('tabungan_tambah', ['status_pengajuan' => 'Diajukan', 'id_anggota' => $payroll])->result_array();
+        return $this->db->get_where('tabungan_kelola', ['status_pengajuan' => 'Diajukan', 'id_anggota' => $payroll])->result_array();
     }
 
     public function ins_tambah_tabungan($payroll)
@@ -59,12 +59,13 @@ class M_Tabungan extends CI_model
             'id_tahun' => $this->input->post('tahun_menabung', true),
             'id_bulan' => $this->input->post('bulan_menabung', true),
             'tanggal_pengajuan' => $this->input->post('tanggal_pengajuan', true),
-            'jumlah_menabung' => $this->input->post('jumlah_menabung', true),
+            'jumlah_pengajuan' => $this->input->post('jumlah_menabung', true),
+            'jenis_pengajuan' => $this->input->post('jenis_pengajuan', true),
             'sistem_pemotongan' => $this->input->post('sistem_menabung', true),
             'status_pengajuan' => 'Diajukan',
             'cdt' => $now
         ];
-        $this->db->insert('tabungan_tambah', $data_yyyy);
+        $this->db->insert('tabungan_kelola', $data_yyyy);
     }
 
     // public function upd_tambah_tabungan($payroll)

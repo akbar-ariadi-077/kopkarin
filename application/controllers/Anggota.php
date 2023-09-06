@@ -489,12 +489,70 @@ class Anggota extends CI_Controller
         $data['s_tabungan']     = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
         $data['aju_tabungan']   = $this->M_Tabungan->get_tambah_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
 
+        $data['m_tahun']        = $this->M_Tahun->get_all_tahun();
+        $data['m_bulan']        = $this->M_Bulan->get_all_bulan();
+
         $this->load->view('anggota/header');
         $this->load->view('include/loader');
         $this->load->view('anggota/navbar', $data);
         $this->load->view('anggota/sidebar');
         $this->load->view('anggota/tabungan_kelola', $data);
         $this->load->view('anggota/footer');
+    }
+
+    public function tabungan_kelola_cek()
+    {
+        $data['user_data']              = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']               = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['m_iduser_ro']            = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
+
+        $data['a_tabungan']             = $this->M_Tabungan->get_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['s_tabungan']             = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['aju_tabungan']           = $this->M_Tabungan->get_tambah_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['a_sisa_tabungan']        = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
+
+        $data['bulan_menabung']         = $this->input->post('bulan_menabung', true);
+        $data['tahun_menabung']         = $this->input->post('tahun_menabung', true);
+        $data['input_jumlah_menabung']  = $this->input->post('jumlah_menabung', true);
+        $data['input_sistem_menabung']  = $this->input->post('sistem_menabung', true);
+        $data['input_jenis_pengajuan']  = $this->input->post('jenis_pengajuan', true);
+        
+        $data['get_bulan']              = $this->M_Bulan->get_bulan_by_id($this->input->post('bulan_menabung', true));
+        $data['get_tahun']              = $this->M_Tahun->get_tahun_by_id($this->input->post('tahun_menabung', true));
+
+        $this->load->view('anggota/header');
+        $this->load->view('include/loader');
+        $this->load->view('anggota/navbar', $data);
+        $this->load->view('anggota/sidebar');
+        $this->load->view('anggota/tabungan_kelola_cek', $data);
+        $this->load->view('anggota/footer');
+    }
+
+    public function tabungan_kelola_ajukan()
+    {
+        $data['user_data']              = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
+        
+        $data['m_iduser']               = $this->M_Anggota->get_anggota_by_id_res($this->session->userdata('iduser'));
+        $data['m_iduser_ro']            = $this->M_Anggota->get_anggota_by_id_row($this->session->userdata('iduser'));
+
+        $data['a_tabungan']             = $this->M_Tabungan->get_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['s_tabungan']             = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['aju_tabungan']           = $this->M_Tabungan->get_tambah_tabungan_by_nik($data['m_iduser_ro']['id_anggota']);
+        $data['a_sisa_tabungan']        = $this->M_Tabungan->get_tabungan_saldo_by_nik($data['m_iduser_ro']['id_anggota']);
+
+        $data['bulan_menabung']         = $this->input->post('bulan_menabung', true);
+        $data['tahun_menabung']         = $this->input->post('tahun_menabung', true);
+        $data['input_jumlah_menabung']  = $this->input->post('jumlah_menabung', true);
+        $data['input_sistem_menabung']  = $this->input->post('sistem_menabung', true);
+        $data['input_jenis_pengajuan']  = $this->input->post('jenis_pengajuan', true);
+        
+        $data['get_bulan']              = $this->M_Bulan->get_bulan_by_id($this->input->post('bulan_menabung', true));
+        $data['get_tahun']              = $this->M_Tahun->get_tahun_by_id($this->input->post('tahun_menabung', true));
+
+        $this->M_Tabungan->ins_tambah_tabungan($data['m_iduser_ro']['id_anggota']);
+
+        $this->tabungan_kelola();
     }
 
     public function tabungan_tambah()
