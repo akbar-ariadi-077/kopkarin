@@ -47,7 +47,7 @@
                                             <?= $z; ?>
                                         </td>
                                         <td align="left">
-                                            <?= $y['id_bulan'] . ' ' . $y['id_tahun']; ?>
+                                            <?= $y['txt_pr_id_bulan'] . ' ' . $y['text_tahun']; ?>
                                         </td>
                                         <td align="left">
                                             <?= $y['tanggal_pengajuan']; ?>

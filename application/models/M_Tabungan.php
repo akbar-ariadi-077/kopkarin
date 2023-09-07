@@ -44,6 +44,17 @@ class M_Tabungan extends CI_model
         return $this->db->query($query)->result_array();
     }
 
+    public function get_tabungan_kelola_by_nik($payroll)
+    {
+        $query = $this->db->select('p.*, b.txt_pr_id_bulan, t.text_tahun')
+            ->from('tabungan_kelola p')
+            ->join('bulan b', 'p.id_bulan = b.id_bulan')
+            ->join('tahun t', 'p.id_tahun = t.id_tahun')
+            ->where('p.id_anggota', $payroll)
+            ->get();
+        return $query->result_array();
+    }
+
     public function get_tambah_tabungan_by_nik($payroll)
     {
         return $this->db->get_where('tabungan_kelola', ['status_pengajuan' => 'Diajukan', 'id_anggota' => $payroll])->result_array();
