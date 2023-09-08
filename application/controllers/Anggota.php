@@ -196,19 +196,21 @@ class Anggota extends CI_Controller
 
         if ($this->input->post('jumlah_pinjaman', true) == 'Lainnya') {
             $data['input_jumlah_pinjaman']  = $this->input->post('jumlah_pinjaman_lainnya', true);
+            $data_jumlah_pinjaman           = $data['input_jumlah_pinjaman'];
         } else {
             $data['input_jumlah_pinjaman']  = $this->input->post('jumlah_pinjaman', true);
+            $data['jumlah_pinjaman']        = $this->M_Master->get_jumlah_pinjaman_by_id($data['input_jumlah_pinjaman']);
+            $data_jumlah_pinjaman           = $data['jumlah_pinjaman']['int_pinjaman'];
         }
 
         $data['input_jangka_waktu']         = $this->input->post('jangka_waktu', true);
-
-        $data['jumlah_pinjaman']            = $this->M_Master->get_jumlah_pinjaman_by_id($data['input_jumlah_pinjaman']);
         $data['jangka_waktu']               = $this->M_Master->get_jangka_waktu_by_id($this->input->post('jangka_waktu', true));
+
         $data['bunga']                      = 0.75 * $data['jangka_waktu']['int_jangka'];
         $data['bunga_per_bulan']            = 0.75;
-        $data['bunga_per_tahun']            = $data['jumlah_pinjaman']['int_pinjaman'] * ((0.75 * $data['jangka_waktu']['int_jangka']) / 100);
+        $data['bunga_per_tahun']            = $data_jumlah_pinjaman * ((0.75 * $data['jangka_waktu']['int_jangka']) / 100);
 
-        $data['angsuran_pokok_per_bulan']   = $data['jumlah_pinjaman']['int_pinjaman'] / $data['jangka_waktu']['int_jangka'];
+        $data['angsuran_pokok_per_bulan']   = $data_jumlah_pinjaman / $data['jangka_waktu']['int_jangka'];
         $data['angsuran_bunga_per_bulan']   = $data['bunga_per_tahun'] / $data['jangka_waktu']['int_jangka'];
 
         $data['bayar_per_bulan']            = $data['angsuran_pokok_per_bulan'] + $data['angsuran_bunga_per_bulan'];
@@ -222,7 +224,7 @@ class Anggota extends CI_Controller
             $data['sisa_bunga_lama'] = 0;
         }
 
-        $data['total_didapat']      = $data['jumlah_pinjaman']['int_pinjaman'] - $data['sisa_pinjaman_lama'] - $data['sisa_bunga_lama'];
+        $data['total_didapat']      = $data_jumlah_pinjaman - $data['sisa_pinjaman_lama'] - $data['sisa_bunga_lama'];
         if (isset($data['a_pengajuan'])) {
             $data['sisa_angsuran_lama'] = $data['a_pengajuan']['jangka_waktu'] - $data['a_pengajuan']['angsuran_ke'];
         } else {

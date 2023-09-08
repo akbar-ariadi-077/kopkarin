@@ -36,8 +36,8 @@
                                             <h4>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= number_format($jumlah_pinjaman['int_pinjaman']); ?>
-                                                        <input type="hidden" name="jumlah_pinjaman" value="<?= $jumlah_pinjaman['int_pinjaman']; ?>">
+                                                        <?= (isset($jumlah_pinjaman['int_pinjaman']) ? number_format($jumlah_pinjaman['int_pinjaman']) : number_format($input_jumlah_pinjaman)); ?>
+                                                        <input type="hidden" name="jumlah_pinjaman" value="<?= (isset($jumlah_pinjaman['int_pinjaman']) ? ($jumlah_pinjaman['int_pinjaman']) : ($input_jumlah_pinjaman)); ?>">
                                                     </b>
                                                 </span>
                                             </h4>
@@ -171,7 +171,7 @@
                                             <h4>
                                                 <span class="badge badge-light-dark">
                                                     <b>
-                                                        <?= number_format($jumlah_pinjaman['int_pinjaman']); ?>
+                                                        <?= (isset($jumlah_pinjaman['int_pinjaman']) ? number_format($jumlah_pinjaman['int_pinjaman']) : number_format($input_jumlah_pinjaman)); ?>
                                                     </b>
                                                 </span>
                                             </h4>
