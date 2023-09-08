@@ -48,13 +48,14 @@
                                             <h6>Jumlah Pinjaman&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
-                                            <select class="form-control form-control-sm" name="jumlah_pinjaman" required>
+                                            <select class="form-control form-control-sm" name="jumlah_pinjaman" required onchange="pinjaman_lainnya(this.value)">
                                                 <option value="">Pilih <b>Jumlah Pinjaman</b></option>
-                                                <?php foreach ($m_pinjaman as $m): ?>
+                                                <?php foreach ($m_pinjaman as $m) : ?>
                                                     <option value="<?= $m['id']; ?>"><?= number_format($m['int_pinjaman']); ?></option>
                                                 <?php endforeach; ?>
                                                 <option value="Lainnya">Lainnya</b></option>
                                             </select>
+                                            <div id="pinjaman_lainnya"></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -64,7 +65,7 @@
                                         <td width="50%" align="left">
                                             <select class="form-control form-control-sm" name="jangka_waktu" required>
                                                 <option value="">Pilih <b>Jangka Waktu</b></option>
-                                                <?php foreach ($m_jangka as $j): ?>
+                                                <?php foreach ($m_jangka as $j) : ?>
                                                     <option value="<?= $j['id']; ?>"><?= number_format($j['int_jangka']); ?>
                                                     </option>
                                                 <?php endforeach; ?>
