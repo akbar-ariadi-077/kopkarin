@@ -39,8 +39,8 @@
                             <tbody>
                                 <?php
                                 $z = 0;
-                                foreach ($aju_tabungan as $y):
-                                    ?>
+                                foreach ($aju_tabungan as $y) :
+                                ?>
                                     <tr>
                                         <?php $z += 1; ?>
                                         <td>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-                        
+
             <br><br>
 
             <div class="row layout-top-spacing">
@@ -88,7 +88,7 @@
                         </div>
                         <br>
                         <table style="width: 100%; margin: auto;" border="0">
-                            <form class="form-control" method="post" action="<?= base_url(); ?>anggota/tabungan_kelola_cek#data">
+                            <form class="form-control" method="post" action="<?= base_url(); ?>anggota/tabungan_kelola_cek#data" enctype="multipart/form-data">
                                 <tbody>
                                     <tr>
                                         <td width="50%" align="right">
@@ -100,7 +100,7 @@
                                                     <b>
                                                         <?php
                                                         $saldo = 0;
-                                                        foreach ($a_tabungan as $y):
+                                                        foreach ($a_tabungan as $y) :
                                                             $saldo = $saldo + ($y['tabungan_anggota'] + $y['tabungan_anggota_diambil']);
                                                         endforeach;
                                                         ?>
@@ -124,14 +124,13 @@
                                         </td>
                                         <td width="50%" align="left">
                                             <select class="form-control form-control-sm" name="tahun_menabung" required>
-                                                <option value="">Pilih <b>Tahun Pengajuan</b></option>
-                                                <?php foreach ($m_tahun as $mt): ?>
-                                                    <?php if ($mt['int_tahun'] == $ynow): ?>
+                                                <!-- <option value="">Pilih <b>Tahun Pengajuan</b></option> -->
+                                                <?php foreach ($m_tahun as $mt) : ?>
+                                                    <?php if ($mt['int_tahun'] == $ynow) : ?>
                                                         <option value="<?= $mt['id_tahun'] ?>" selected><?= $mt['text_tahun']; ?></option>
-                                                    <?php else: ?>
-                                                        <option value="<?= $mt['id_tahun'] ?>"><?= $mt['text_tahun']; ?>
-                                                        </option>
-                                                    <?php endif; ?>
+                                                    <?php /* else : ?>
+                                                        <option value="<?= $mt['id_tahun'] ?>"><?= $mt['text_tahun']; ?></option>
+                                                    <?php */ endif; ?>
                                                 <?php endforeach; ?>
                                             </select>
                                         </td>
@@ -142,11 +141,13 @@
                                         </td>
                                         <td width="50%" align="left">
                                             <select class="form-control form-control-sm" name="bulan_menabung" required>
-                                                <option value="">Pilih <b>Bulan Pengajuan</b></option>
-                                                <?php foreach ($m_bulan as $mb): ?>
-                                                    <?php if ($mb['int2_bulan'] == $mnow): ?>
+                                                <!-- <option value="">Pilih <b>Bulan Pengajuan</b></option> -->
+                                                <?php foreach ($m_bulan as $mb) : ?>
+                                                    <?php if ($mb['int2_bulan'] == $mnow) : ?>
                                                         <option value="<?= $mb['id_bulan'] ?>" selected><?= $mb['txt_pr_id_bulan']; ?></option>
-                                                    <?php else: ?>
+                                                    <?php elseif ($mb['int2_bulan'] < $mnow) : ?>
+                                                        <option value="<?= $mb['id_bulan'] ?>" disabled><?= $mb['txt_pr_id_bulan']; ?></option>
+                                                    <?php else : ?>
                                                         <option value="<?= $mb['id_bulan'] ?>"><?= $mb['txt_pr_id_bulan']; ?>
                                                         </option>
                                                     <?php endif; ?>
@@ -156,10 +157,10 @@
                                     </tr>
                                     <tr>
                                         <td width="50%" align="right">
-                                            <h6>Jumlah Pengajuan&nbsp;&nbsp;</h6>
+                                            <h6>Jumlah Pengajuan&nbsp;&nbsp;<br>(Nominal dalam Tulisan)&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
-                                            <input class="form-control form-control-sm" type="number" name="jumlah_menabung" required>
+                                            <input class="form-control form-control-sm" type="number" name="jumlah_menabung" required step=1.0>
                                         </td>
                                     </tr>
                                     <tr>
@@ -184,6 +185,28 @@
                                                 <option value="Potong Payroll Gaji">Potong Payroll Gaji</option>
                                                 <option value="Transfer Nominal Tertentu">Transfer Nominal Tertentu</option>
                                             </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" align="right">
+                                            <h6>Nomor Rekening Koperasi&nbsp;&nbsp;</h6>
+                                        </td>
+                                        <td width="50%" align="left">
+                                            <h4>
+                                                <span class="badge badge-light-dark">
+                                                    <b>
+                                                        1234567890
+                                                    </b>
+                                                </span>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%" align="right">
+                                            <h6>Upload Bukti Transfer&nbsp;&nbsp;</h6>
+                                        </td>
+                                        <td width="50%" align="left">
+                                            <input class="form-control form-control-sm" type="file" name="bukti_transfer">
                                         </td>
                                     </tr>
                                     <tr>
