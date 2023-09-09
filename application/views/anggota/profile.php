@@ -9,7 +9,7 @@
                 <span class="btn-text-inner">Kembali</span>
             </button>
             <br>
-            <?php foreach ($m_iduser as $us): ?>
+            <?php foreach ($m_iduser as $us) : ?>
                 <div class="account-settings-container layout-top-spacing">
                     <div class="account-content">
                         <div class="tab-content" id="animateLineContent-4">
@@ -21,7 +21,7 @@
                                                 <div class="text-center user-info">
                                                     <div class="profile-image mt-4 pe-md-4">
                                                         <div class="img-uploader-content">
-                                                            <img src="<?= base_url() . 'assets/src/assets/img/pp/anggota/' . $user_data['photo_profile']; ?>" width="90" height="90" alt="<?= $this->session->userdata('username'); ?>" />
+                                                            <img src="<?= base_url(); ?>assets/src/assets/img/pp/anggota/<?= (isset($user_data['photo_profile']) ? $user_data['photo_profile'] : 'profile-38.png'); ?>" width="90" height="90" alt="<?= $this->session->userdata('username'); ?>" />
                                                         </div>
                                                     </div>
                                                     <p class="">
@@ -29,23 +29,23 @@
                                                     </p>
                                                 </div>
                                                 <div class="text-center">
-                                                    <?php if ($this->session->flashdata('ubah-pp-berhasil')): ?>
+                                                    <?php if ($this->session->flashdata('ubah-pp-berhasil')) : ?>
                                                         <p class="form-label alert alert-success alert-dismissable fade show" style="text-align: center;">
                                                             <?= $this->session->flashdata('ubah-pp-berhasil'); ?>
                                                         </p>
-                                                    <?php elseif ($this->session->flashdata('ubah-pp-gagal')): ?>
+                                                    <?php elseif ($this->session->flashdata('ubah-pp-gagal')) : ?>
                                                         <p class="form-label alert alert-danger alert-dismissable fade show" style="text-align: center;">
                                                             <?= $this->session->flashdata('ubah-pp-gagal'); ?>
                                                         </p>
-                                                    <?php elseif ($this->session->flashdata('ubah-password-berhasil')): ?>
+                                                    <?php elseif ($this->session->flashdata('ubah-password-berhasil')) : ?>
                                                         <p class="form-label alert alert-success alert-dismissable fade show" style="text-align: center;">
                                                             <?= $this->session->flashdata('ubah-password-berhasil'); ?>
                                                         </p>
-                                                    <?php elseif ($this->session->flashdata('password-lama-salah')): ?>
+                                                    <?php elseif ($this->session->flashdata('password-lama-salah')) : ?>
                                                         <p class="form-label alert alert-danger alert-dismissable fade show" style="text-align: center;">
                                                             <?= $this->session->flashdata('password-lama-salah'); ?>
                                                         </p>
-                                                    <?php elseif ($this->session->flashdata('password-baru-salah')): ?>
+                                                    <?php elseif ($this->session->flashdata('password-baru-salah')) : ?>
                                                         <p class="form-label alert alert-danger alert-dismissable fade show" style="text-align: center;">
                                                             <?= $this->session->flashdata('password-baru-salah'); ?>
                                                         </p>
@@ -60,8 +60,7 @@
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title" id="modalUbahFotoProfileTitle">Ubah Foto Profil</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                                                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                                                                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                                                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                                                                             </svg>
@@ -93,8 +92,7 @@
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title" id="modalUbahPasswordTitle">Ubah Password</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                                                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
                                                                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                                                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                                                                             </svg>

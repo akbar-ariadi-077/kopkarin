@@ -1,11 +1,11 @@
 <div class="row layout-spacing ">
-    <?php foreach ($m_iduser as $us): ?>
+    <?php foreach ($m_iduser as $us) : ?>
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 layout-top-spacing">
             <div class="user-profile">
                 <div class="widget-content widget-content-area">
                     <div class="text-center user-info">
                         <a href="<?= base_url(); ?>anggota/profile/<?= $this->session->userdata('iduser'); ?>#data">
-                            <img src="<?= base_url(); ?>assets/src/assets/img/pp/anggota/<?= $user_data['photo_profile']; ?>" alt="avatar" width="90" height="90">
+                            <img src="<?= base_url(); ?>assets/src/assets/img/pp/anggota/<?= (isset($user_data['photo_profile']) ? $user_data['photo_profile'] : 'profile-39.PNG'); ?>" alt="avatar" width="90" height="90">
                             <p class="">
                                 <?= $us['payroll_anggota']; ?> /
                                 <?= $us['nama_anggota']; ?> /
@@ -67,7 +67,7 @@
                                                         <h5>
                                                             <span class="badge badge-light-dark">
                                                                 <b>
-                                                                    <?php foreach ($s_tabungan as $y): ?>
+                                                                    <?php foreach ($s_tabungan as $y) : ?>
                                                                         <?= (isset($y['jumlah_tabungan'])) ? number_format($y['jumlah_tabungan']) : '0'; ?>
                                                                     <?php endforeach; ?>
                                                                 </b>
@@ -83,7 +83,7 @@
                                                         <h5>
                                                             <span class="badge badge-light-dark">
                                                                 <b>
-                                                                    <?php foreach ($a_sisa_pinj as $y): ?>
+                                                                    <?php foreach ($a_sisa_pinj as $y) : ?>
                                                                         <?= (isset($y['sisa_pinjaman'])) ? number_format($y['sisa_pinjaman']) : '0'; ?>
                                                                     <?php endforeach; ?>
                                                                 </b>
@@ -159,7 +159,7 @@
                                         <h5>
                                             <span class="badge badge-light-dark">
                                                 <b>
-                                                    <?php foreach ($s_tabungan as $y): ?>
+                                                    <?php foreach ($s_tabungan as $y) : ?>
                                                         <?= (isset($y['jumlah_tabungan'])) ? number_format($y['jumlah_tabungan']) : '0'; ?>
                                                     <?php endforeach; ?>
                                                 </b>
