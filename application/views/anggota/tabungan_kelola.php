@@ -160,7 +160,7 @@
                                             <h6>Jumlah Pengajuan&nbsp;&nbsp;<br>(Nominal dalam Tulisan)&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
-                                            <input class="form-control form-control-sm" type="number" name="jumlah_menabung" required step=1.0>
+                                            <input class="form-control form-control-sm" type="text" name="jumlah_menabung" required id="inputku" onkeydown="return numbersonly(this, event);" onkeyup="javascript:tandaPemisahTitik(this);">
                                         </td>
                                     </tr>
                                     <tr>
@@ -168,7 +168,7 @@
                                             <h6>Jenis Pengajuan&nbsp;&nbsp;</h6>
                                         </td>
                                         <td width="50%" align="left">
-                                            <select class="form-control form-control-sm" name="jenis_pengajuan" required>
+                                            <select class="form-control form-control-sm" name="jenis_pengajuan" required onchange="jenpen_sispot(this.value)">
                                                 <option value="">Pilih <b>Jenis Pengajuan</b></option>
                                                 <option value="Tambah">Tambah Tabungan</option>
                                                 <option value="Ambil">Ambil Tabungan</option>
@@ -176,16 +176,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="50%" align="right">
-                                            <h6>Sistem Pemotongan&nbsp;&nbsp;</h6>
-                                        </td>
-                                        <td width="50%" align="left">
-                                            <select class="form-control form-control-sm" name="sistem_menabung" required>
-                                                <option value="">Pilih <b>Sistem Pemotongan</b></option>
-                                                <option value="Potong Payroll Gaji">Potong Payroll Gaji</option>
-                                                <option value="Transfer Nominal Tertentu">Transfer Nominal Tertentu</option>
-                                            </select>
-                                        </td>
+                                        <div id="jenpen_sispot"></div>
                                     </tr>
                                     <tr>
                                         <td width="50%" align="right">

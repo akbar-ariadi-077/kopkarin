@@ -121,6 +121,11 @@ class Anggota extends CI_Controller
         $this->load->view('anggota/pinjaman_lainnya');
     }
 
+    public function jenpen()
+    {
+        $this->load->view('anggota/jenis_pengajuan');
+    }
+
     public function pengajuan($param = NULL)
     {
         $data['user_data']   = $this->M_Auth->get_user_by_id($this->session->userdata('iduser'));
@@ -195,12 +200,14 @@ class Anggota extends CI_Controller
         }
 
         if ($this->input->post('jumlah_pinjaman', true) == 'Lainnya') {
-            $data['input_jumlah_pinjaman']  = $this->input->post('jumlah_pinjaman_lainnya', true);
+            $data['input_jumlah_pinjaman']  = intval(str_replace(".", "", $this->input->post('jumlah_pinjaman_lainnya', true)));
             $data_jumlah_pinjaman           = $data['input_jumlah_pinjaman'];
+            echo "jumlah pinjaman = " . $this->input->post('jumlah_pinjaman', true) . "<br>Pinjaman lainnya = " . str_replace(".", "", $this->input->post('jumlah_pinjaman_lainnya', true));
         } else {
             $data['input_jumlah_pinjaman']  = $this->input->post('jumlah_pinjaman', true);
             $data['jumlah_pinjaman']        = $this->M_Master->get_jumlah_pinjaman_by_id($data['input_jumlah_pinjaman']);
             $data_jumlah_pinjaman           = $data['jumlah_pinjaman']['int_pinjaman'];
+            echo $data_jumlah_pinjaman;
         }
 
         $data['input_jangka_waktu']         = $this->input->post('jangka_waktu', true);
@@ -239,12 +246,12 @@ class Anggota extends CI_Controller
         $data['tahun_pengajuan'] = $data['tahun']['id_tahun'];
         $data['bulan_pengajuan'] = $data['bulan']['id_bulan'];
 
-        $this->load->view('anggota/header');
-        $this->load->view('include/loader');
-        $this->load->view('anggota/navbar', $data);
-        $this->load->view('anggota/sidebar');
-        $this->load->view('anggota/pengajuan_cek', $data);
-        $this->load->view('anggota/footer');
+        // $this->load->view('anggota/header');
+        // $this->load->view('include/loader');
+        // $this->load->view('anggota/navbar', $data);
+        // $this->load->view('anggota/sidebar');
+        // $this->load->view('anggota/pengajuan_cek', $data);
+        // $this->load->view('anggota/footer');
     }
 
     public function pengajuan_ajukan()
